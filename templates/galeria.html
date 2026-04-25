@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <link rel="icon" href="../assets/icons/ases_ros.ico">
+    <link rel="stylesheet" href="../static/CSS/galeria.css">
+</head>
+
+<body>
+
+    <header style="background-color: brown; display: flex;">
+
+        <div id="logo">
+            <img src="../assets/images/ases_ros.png" alt="logo" width="150">
+        </div>
+
+        <div>
+            <nav>
+                <a href="">Zapatillas</a>
+                <a href="">Ropa</a>
+                <a href="">Accesorios</a>
+                <a href="">Contacto</a>
+            </nav>
+        </div>
+
+
+
+    </header>
+
+    <main style="display: flex; background-color: black;">
+
+
+        <section id="filtros">
+            <div class="filtroProducto" style="background-color: gray; color: crimson; max-width: 200px;">
+                <h2>Filtros</h2>
+                <label for="opciones">Marcas</label>
+                <br>
+                <input type="checkbox" name="opcion" value="marcaJordan">Jordan
+
+                <h2>Talles</h2>
+                <label for="opciones"></label>
+                <button id="talleS">S</button>
+                <button id="talleA">A</button>
+
+
+
+                <h2>Precio</h2>
+                <input type="range" min="0" max="100">
+                <h2>Min - Max</h2>
+
+            </div>
+
+
+        </section>
+
+
+        <section id="gorras">
+            <div class="gorra">
+                <ul style="list-style: none">
+                    <li>
+                        <div class="card"
+                            style="background-color: wheat; border: 2px solid black; max-width:200px; display: inline-block; margin: 10px;">
+                            <img src="../assets/images/NI9A0928-R78-1.jpeg" alt="gorra" width="100">
+                            <h4></h4>
+                            <p>Precio: $500</p>
+                            <p>Talle</p>
+                            <p>Stock</p>
+                            <button id="carrito">Agregar al carrito</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+
+
+</body>
+
+</html>
