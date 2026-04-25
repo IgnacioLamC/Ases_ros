@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-body{ background-image:linear-gradient(rgba(255, 255, 255, 0.911), rgba(255, 255, 255, 0.904)), url('//assets/images/seamless-pattern-of-playing-card-suits-on-white-vector-background-M5PG3T.jpg'); 
+body{ background: linear-gradient(rgba(255, 255, 255, 0.795), rgba(255, 255, 255, 0.836)), url("fondocartas.jpg");
+ 
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed; 
@@ -85,6 +86,14 @@ header h1{
     font-style: normal;
  }
 
+ hr{
+    background-color: #c43737;
+   max-width: auto;
+margin-top: 10px;
+margin-bottom: 20px;
+    height: 30px;
+ }
+
 button { 
 margin-top: 10px; 
 width: 100%; 
@@ -119,6 +128,26 @@ position: relative;
 transition: 0.3s; 
 } 
 
+.card-of { 
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400; 
+    font-style: normal;
+background: whitesmoke; 
+border: 1px solid red; 
+border-radius: 10px; 
+padding: 15px; 
+position: relative; 
+transition: 0.3s; 
+} 
+
+.oferta-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+     z-index: 10;
+}
+
 .card:hover { 
 transform: scale(1.03);
 } 
@@ -136,7 +165,7 @@ justify-content: center
 }
 
 footer {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     font-weight: 400; 
     font-style: normal;
     display: flex;
@@ -149,6 +178,18 @@ footer {
 justify-content: space-evenly;
 padding-top: 10px;
 padding-bottom:10px;
+}
+a{
+    text-decoration: none;
+   color:white
+}
+.contactos {
+    display: flex;
+    align-items: center; 
+    gap: 10px;           
+}
+footer ul {
+     list-style: none;
 }
 
 /* SLIDER */
