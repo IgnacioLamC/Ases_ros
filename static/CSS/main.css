@@ -1,0 +1,61 @@
+reset{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+  background-image: url('//HTML/multimedia/fotos/depositphotos_309972390-stock-illustration-playing-cards-pattern-ace-hearts.jpg');
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: white;
+    padding: 15px;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;}
+    nav a 
+    {
+    color: white;
+    text-decoration: none;
+    nav a:hover 
+    {color: red;
+    }
+}
+header h1 {
+    color: red;
+}
+button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #c43737;
+    border: none;
+    color: white
+    cursor:pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background:red
+}
+.content {
+    flex: 1;
+    padding: 20px;}
+#productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: whitesmoke;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    transition: 0.3s;
+}
