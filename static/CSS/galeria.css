@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgba(255, 255, 255, 0.795), rgba(255, 255, 255, 0.836)), url("fondocartas.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+p {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#carrito {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #c43737;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buscadorProducto{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 30px;
+    
+    background-color: red;
+    align-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    border-top: black 2px solid;
+    border-bottom: black 2px solid;
+    
+
+}
+
+#navegacion a {
+    color: black;
+    text-decoration: none;
+}
+
+#navegacion {
+    display: flex;
+    text-align: start;
+    justify-content: space-between;    
+    gap: 40px;
+}
+
+#logo {
+    width: 150;
+    
+}
+
+button:hover {
+    background: red
+}
+
+
+.card {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background: whitesmoke;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    transition: 0.3s;
+}
+
+#filtros {
+    background-color: gray;
+    color: crimson;
+    max-width: 200px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
