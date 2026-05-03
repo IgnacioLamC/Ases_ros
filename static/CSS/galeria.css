@@ -10,6 +10,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    
 }
 
 p {
@@ -31,7 +32,7 @@ p {
 
 .buscadorProducto{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     text-align: center;
     padding: 15px 30px;
     
@@ -43,8 +44,6 @@ p {
 
     border-top: black 2px solid;
     border-bottom: black 2px solid;
-    
-
 }
 
 #navegacion a {
@@ -64,8 +63,22 @@ p {
     
 }
 
+#logoBusqueda {
+    display: flex;
+}
+
 button:hover {
     background: red
+}
+
+#gorras {
+    background-color: rgb(139, 0, 0);
+    border: 1px solid black;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    gap: 15px;
+    text-align: justify;
 }
 
 
@@ -73,19 +86,38 @@ button:hover {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     font-style: normal;
-    background: whitesmoke;
-    border: 1px solid red;
+    background: red;
+    color: black;
+    border: 1px solid black;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
     position: relative;
     transition: 0.3s;
+    width: 140px;
+    margin: 0 auto;
 }
 
 #filtros {
-    background-color: gray;
-    color: crimson;
-    max-width: 200px;
+    text-align: center;
+    background-color: red;
+    color: black;
+    border: 1px solid black;
+    max-width: 400%;
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     font-style: normal;
+    height: 400px;
+    width: 300px;
 }
+
+#rango {
+    accent-color: black;
+    
+
+}
+
+
+main {
+    display: flex;
+}
+

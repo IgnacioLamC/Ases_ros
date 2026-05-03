@@ -14,27 +14,24 @@
 <body>
 
     <header>
-
-
-
         <div class="buscadorProducto">
 
             <div id="logo">
                 <img src="../assets/images/ases_ros.png" alt="logo">
-
             </div>
-
-
             <nav id="navegacion">
                 <a href="">Zapatillas</a>
                 <a href="">Ropa</a>
                 <a href="">Accesorios</a>
                 <a href="">Contacto</a>
             </nav>
+
+            <div id="logoBusqueda">
+                <input type="search" name="buscador" placeholder="Buscar accesorio">
+            </div>
+
+
         </div>
-
-
-
     </header>
 
     <main>
@@ -43,19 +40,25 @@
         <section id="filtros">
             <div class="filtroProducto">
                 <h2>Filtros</h2>
+                <br>
                 <label for="opciones">Marcas</label>
                 <br>
-                <input type="checkbox" name="opcion" value="marcaJordan">Jordan
-
+                <input type="checkbox" id="cajaMarca" name="opcion" value="marcaJordan">Jordan
+                <br>
+                <br>
+                <br>
                 <h2>Talles</h2>
-                <label for="opciones"></label>
+                <label for="tallesAccesorios"></label>
                 <button id="talleS">S</button>
                 <button id="talleA">A</button>
 
+                <br>
+                <br>
+                <br>
 
 
                 <h2>Precio</h2>
-                <input type="range" min="0" max="100">
+                <input id="rango" type="range" min="0" max="100">
                 <h2>Min - Max</h2>
 
             </div>
