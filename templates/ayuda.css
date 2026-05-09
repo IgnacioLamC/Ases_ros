@@ -1,0 +1,38 @@
+.desplegable {
+    display: grid;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f9f9f9;
+    width: calc(50% - 8px);
+    align-self: flex-start;
+}
+
+.title {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #eee;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 15px;
+}
+
+.item.active .content {
+    max-height: 300px;
+    padding: 15px;
+}
