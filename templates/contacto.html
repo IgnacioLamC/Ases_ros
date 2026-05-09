@@ -6,12 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="ayuda.css">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue" rel="stylesheet">
 </head>
 
 <body>
-    
-    <div class="desplegable">
+    <header>
+        <div class="logo">
+            <img src="assets/images/logopagina.png" alt="logoPagina" id="logo" width="100">
+        </div>
 
+
+        <nav>
+            <div class="menu">
+                <a href="">HOME</a>
+                <a href="">Zapatillas</a>
+                <a href="">Ropa</a>
+                <a href="">Accesorios</a>
+                <a href="ayuda.html">Ayuda</a>
+            </div>
+
+            <div class="busqueda">
+                <input type="text" placeholder="Buscar producto...">
+                <button>Buscar</button>
+                <a href="">
+                    <img src="assets/images/carrito.png" alt="carrito logo" width="30">
+                </a>
+            </div>
+
+
+        </nav>
+
+        <hr class="barra">
+
+    </header>
+    <br>
+    <br>
+    <seccion class="contenedor">
+
+    <div class="desplegable">
+        <h1> ¿Cómo podemos ayudarte? </h1>
         <div class="item">
             <button class="title">Realizar un pedido</button>
             <div class="content">
@@ -61,15 +94,19 @@
         </div>
 
         <div class="ubicacion">
-            <p>📍 Encontranos acá:</p>
-
+            <p class="pmapa">📍 Encontranos acá:</p>
+            <br>
             <a href="https://maps.google.com/?q=Monumento+a+la+Bandera" target="_blank">
-                <img src="https://via.placeholder.com/400x200?text=Ver+en+Google+Maps" alt="Ubicación">
+
+                <iframe class="mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.118920062399!2d-60.63292632433017!3d-32.94786957359268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab1dc9b6d36f%3A0x97b9e9584d94d851!2sMonumento%20Hist%C3%B3rico%20Nacional%20a%20la%20Bandera!5e0!3m2!1ses-419!2sar!4v1778349996807!5m2!1ses-419!2sar"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" alt="Ubicación"></iframe>
             </a>
         </div>
 
     </div>
-
+    </seccion>
     <script>
         const items = document.querySelectorAll(".item");
 
