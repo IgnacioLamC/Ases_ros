@@ -28,14 +28,14 @@
 
             <div id="logoBusqueda">
                 <input type="search" name="buscador" placeholder="Buscar accesorio">
-                <button id="btnBuscar">Buscar</button>
+                <button class="btnBuscar">Buscar</button>
             </div>
 
 
         </div>
     </header>
-    <main>
 
+    <main>
 
         <section id="filtros">
             <div class="filtroProducto">
@@ -83,7 +83,16 @@
 
                     <button id="talle43">43</button>
                     <button id="talle44">44</button>
+                    <button id="talle45">45</button>
                     <hr>
+
+                    <h2>Accesorios</h2>
+                    <label for="tallesAccesorios"></label>
+                    <button id="tallesm">S/M</button>
+                    <button id="talleml">M/L</button>
+                    <button id="tallelxl">L/XL</button>
+                    <button id="talleUnico">Unico</button>
+
                 </div>
 
                 <h2>Precio</h2>
@@ -111,14 +120,18 @@
                 <div id="descuentosFiltro">
                     <input type="checkbox" id="cajaMarca" name="opcion" value="accesorios">Descuentos
                 </div>
+                <hr>
+
+                <h2>Stock</h2>
+                <div id="stockFiltro">
+                    <input type="checkbox" id="cajaMarca" name="opcion" value="accesorios">Disponible
+                </div>
 
 
 
 
             </div>
         </section>
-
-
 
         <section id="gorras">
             <div class="gorra">
@@ -130,7 +143,7 @@
                             <p>Precio: $500</p>
                             <p>Talle</p>
                             <p>Stock</p>
-                            <button id="carrito">Agregar al carrito</button>
+                            <button class="carrito">Agregar al carrito</button>
                         </div>
                     </li>
                 </ul>
@@ -161,9 +174,6 @@
         </div>
 
     </footer>
-
-
-
 </body>
 
 </html>

@@ -21,7 +21,7 @@ p {
     font-style: normal;
 }
 
-#carrito {
+.carrito {
     margin-top: 10px;
     width: 100%;
     padding: 10px;
@@ -51,7 +51,7 @@ p {
     gap: 10px;
 }
 
-#btnBuscar {
+.btnBuscar {
     margin-top: 10px;
     width: 100%;
     padding: 10px;
@@ -60,6 +60,13 @@ p {
     color: white;
     cursor: pointer;
     border-radius: 5px;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border-radius: 2px;
+    border-color: black;
 }
 
 #navegacion a {
