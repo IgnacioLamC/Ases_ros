@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 
 body {
@@ -10,7 +11,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    
+
 }
 
 p {
@@ -30,20 +31,34 @@ p {
     border-radius: 5px;
 }
 
-.buscadorProducto{
+.buscadorProducto {
     display: flex;
     justify-content: space-around;
     text-align: center;
     padding: 15px 30px;
-    
-    background-color: red;
+    background: rgba(255, 255, 255, 0.795);
     align-items: center;
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     font-style: normal;
 
-    border-top: black 2px solid;
-    border-bottom: black 2px solid;
+    border-top: #c43737 2px solid;
+    border-bottom: #c43737 2px solid;
+}
+
+#logoBusqueda {
+    gap: 10px;
+}
+
+#btnBuscar {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #c43737;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 #navegacion a {
@@ -54,13 +69,13 @@ p {
 #navegacion {
     display: flex;
     text-align: start;
-    justify-content: space-between;    
+    justify-content: space-between;
     gap: 40px;
 }
 
 #logo {
     width: 150;
-    
+
 }
 
 #logoBusqueda {
@@ -72,8 +87,7 @@ button:hover {
 }
 
 #gorras {
-    background-color: rgb(139, 0, 0);
-    border: 1px solid black;
+    border-top: #c43737 2px solid;
     display: flex;
     width: 100%;
     padding: 20px;
@@ -86,9 +100,9 @@ button:hover {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     font-style: normal;
-    background: red;
+    background: rgba(255, 255, 255, 0.795);
     color: black;
-    border: 1px solid black;
+    border: 1px solid red;
     border-radius: 10px;
     padding: 10px;
     position: relative;
@@ -99,9 +113,8 @@ button:hover {
 
 #filtros {
     text-align: center;
-    background-color: red;
     color: black;
-    border: 1px solid black;
+    border: 2px solid #c43737;
     max-width: 400%;
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
@@ -111,9 +124,11 @@ button:hover {
 }
 
 #rango {
-    accent-color: black;
-    
+    accent-color: red;
+}
 
+#cajaMarca {
+    accent-color: red;
 }
 
 
@@ -121,3 +136,18 @@ main {
     display: flex;
 }
 
+footer {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+    flex: content;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
