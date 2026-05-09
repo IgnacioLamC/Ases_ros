@@ -11,6 +11,10 @@ h1{
     font-weight: 400;
     padding-left: 70px;
 }
+
+h2{
+    font-size: 17px;
+}
 .desplegable {
     display: grid;
     flex-wrap: wrap;
@@ -52,13 +56,12 @@ h1{
 .content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s ease;
     padding: 0 15px;
 }
 
 .item.active .content {
     max-height: 300px;
-    padding: 15px;
 }
 
 .logo{
