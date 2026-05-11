@@ -1,0 +1,61 @@
+// 1. Referencias a los elementos del HTML
+const formAses = document.getElementById('form-ases');
+const cuerpoTabla = document.getElementById('cuerpo-tabla');
+
+// 2. Función para obtener los productos del LocalStorage
+// La usamos cada vez que queremos leer la "base de datos"
+const obtenerProductos = () => JSON.parse(localStorage.getItem('db_ases')) || [];
+
+// 3. Función para MOSTRAR los productos en la tabla (READ)
+const pintarTabla = () => {
+    const productos = obtenerProductos();
+    cuerpoTabla.innerHTML = ""; // Limpiamos la tabla antes de dibujar
+
+    productos.forEach((prod, index) => {
+        cuerpoTabla.innerHTML += `
+            <tr>
+                <td>${prod.categoria}</td>
+                <td>${prod.marca}</td>
+                <td>${prod.color}</td>
+                <td>${prod.talle}</td>
+                <td>$${prod.precio}</td>
+                <td>
+                    <button onclick="eliminarProducto(${index})">Eliminar</button>
+                </td>
+            </tr>
+        `;
+    });
+};
+
+// 4. Función para GUARDAR un nuevo producto (CREATE)
+formAses.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nuevoProducto = {
+        categoria: document.getElementById('categoria').value,
+        marca: document.getElementById('marca').value,
+        color: document.getElementById('color').value,
+        talle: document.getElementById('talle').value,
+        precio: document.getElementById('precio').value,
+        imagen: document.getElementById('imagen').value
+    };
+
+    const productos = obtenerProductos();
+    productos.push(nuevoProducto);
+    
+    localStorage.setItem('db_ases', JSON.stringify(productos));
+    
+    formAses.reset(); // Limpia el formulario
+    pintarTabla();    // Refresca la tabla automáticamente
+});
+
+// 5. Función para ELIMINAR un producto (DELETE)
+window.eliminarProducto = (index) => {
+    const productos = obtenerProductos();
+    productos.splice(index, 1); // Quita el elemento del array
+    localStorage.setItem('db_ases', JSON.stringify(productos));
+    pintarTabla(); // Refresca la tabla
+};
+
+// 6. Al cargar la página, mostramos lo que ya esté guardado
+document.addEventListener('DOMContentLoaded', pintarTabla);

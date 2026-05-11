@@ -1,11 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <header>
+
+    </header>
+    <main>
+
+        <section id="seccion-formulario">
+            <h1>Administracion De Datos</h1>
+            <p>Productos: Zapatillas, Ropa Y Accesorios</p>
+            <form id="form-ases">
+                <label for="categoria">Categoria: </label>
+                <select name="categoria" id="categoria">
+                    <option value="1">Zapatillas</option>
+                    <option value="2">Ropa</option>
+                    <option value="3">Accesorios</option>
+                </select>
+                <label for="marca">Marca</label>
+                <input type="text" id="marca" name="Marca" placeholder="Ej: Jordan" required>
+
+                <label for="color">Color:</label>
+                <input type="text" id="color" name="color" placeholder="Ej: Rojo" required>
+
+                <label for="talle">Talle:</label>
+                <input type="text" id="talle" name="talle" placeholder="Ej: M o 42" required>
+
+                <label for="precio">Precio ($):</label>
+                <input type="number" id="precio" name="precio" step="0.01" required>
+
+                <label for="imagen">URL de la Imagen:</label>
+                <input type="url" id="imagen" name="imagen" placeholder="https://..." required>
+
+                <button type="submit" id="btn-guardar">Guardar en Inventario</button>
+            </form>
+        </section>
+
+
+        <hr>
+        <section id="seccion-listado">
+            <h2>Inventario Actual</h2>
+            <div id="contenedor-tabla">
+                <table border="1" id="tabla-productos">
+                    <thead>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Marca</th>
+                            <th>Color</th>
+                            <th>Talle</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-tabla">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="../crud,js"></script>
 </body>
+
 </html>
