@@ -94,29 +94,34 @@ button:hover {
     background: red
 }
 
-#gorras {
-    border-top: #c43737 2px solid;
-    display: flex;
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
     width: 100%;
-    padding: 20px;
-    gap: 15px;
-    text-align: justify;
+    padding: 10px;
 }
-
 
 .card {
     font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400;
-    font-style: normal;
     background: rgba(255, 255, 255, 0.795);
     color: black;
     border: 1px solid red;
     border-radius: 10px;
-    padding: 10px;
-    position: relative;
+    padding: 15px;
     transition: 0.3s;
-    width: 140px;
-    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 #filtros {
@@ -134,7 +139,7 @@ button:hover {
 
 hr {
     border: 0;
-    border-top: 1px solid #ccc; 
+    border-top: 1px solid #ccc;
     margin: 10px 0;
     width: 100%;
 }
@@ -178,4 +183,50 @@ footer {
     padding-bottom: 10px;
     position: relative;
 
+}
+
+
+@media (max-width: 768px) {
+    .buscadorProducto {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    #navegacion {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #logoBusqueda {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    #filtros {
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        top: 0;
+        margin-bottom: 20px;
+    }
+
+    .productos {
+        justify-items: center;
+    }
+
+    @media (max-width: 480px) {
+        footer {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+    }
 }
