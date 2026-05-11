@@ -1,11 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="../static/CSS/carrito.css" />
+  </head>
+  <body>
+    <header style="background-color: brown;">
+        <nav style="display: flex; justify-content: center;">
+          <p>Aca va el nav</p>    
+        </nav>
+    </header>
+    <main>
+      <h2>CARRITO DE COMPRAS</h1>
+      <div class="carrito">
+        <section class="seccion-lista-compras">
+          <h3>Tus compras:</h3>
+          <ol class="lista-productos">
+            <li>
+                <div class="item-carrito">
+                    <div>
+                        <p>1.</p>
+                    </div>
+                    <div><img src="../assets/images/ropa.jpg" alt="Ropa" width="150px"></div>
+                    <div class="producto-info">
+                        <h5>Remera Jordan</h5>
+                        <p>Talle: </p>
+                        <p>Cantidad: <input type="number" min="1" step="1"></p>
+                        <p>$113000.99</p>
+                    </div>
+                    <div>
+                        <button>Borrar</button>
+                    </div>     
+                </div>
+            </li>
+          </ol>
+        </section>
+        <aside>
+          <div>
+            <h3>Resumen del pedido:</h3>
+            <p>Subtotal:</p>
+            <p>Envio:</p>
+            <p>Impuestos:</p>
+            <p>Total:</p>
+          </div>
+          <div>
+            <form action="">
+                <input type="text" placeholder="Código del cupon">
+                <br>
+                <button>Aplicar Codigo</button>
+            </form>
+          </div>
+          <button>Finalizar compra</button>
+          <div>
+            <p>Aca van fotos de tarjetas</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer style="background-color: brown;">
+        <p style="display: flex; justify-content: center;">Aca va el footer</p>
+    </footer>
+  </body>
 </html>
