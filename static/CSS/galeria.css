@@ -5,6 +5,12 @@
     list-style: none;
 }
 
+main {
+    display: flex;
+    align-items: stretch; 
+    width: 100%;
+    border-top: 2px solid #c43737;
+}
 
 body {
     background: linear-gradient(rgba(255, 255, 255, 0.795), rgba(255, 255, 255, 0.836)), url("fondocartas.jpg");
@@ -13,19 +19,6 @@ body {
     background-position: center;
     background-attachment: fixed;
 
-}
-
-#gorras {
-    border-left: 3px solid #c43737;
-    border-top: 3px solid #c43737;
-    height: auto;
-}
-
-main {
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-    border: none;
 }
 
 
@@ -114,7 +107,6 @@ button:hover {
     gap: 20px;
     width: 100%;
     padding: 10px;
-    border-top: #c43737 2px solid;
 }
 
 .card {
@@ -142,34 +134,20 @@ button:hover {
 #filtros {
     text-align: center;
     color: black;
-    max-width: 400%;
-    font-family: 'Bebas Neue', sans-serif;
-    border: none;
-    font-weight: 400;
-    font-style: normal;
-    border-right: 1px solid #c43737;
-    scrollbar-color: #c43737 transparent;
-    scrollbar-gutter: v0;
-    height: auto;
-    width: 280%;
+    width: 280px;
     min-width: 280px;
-    padding-right: 10px;
-    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    border-right: 2px solid #c43737;
+    box-sizing: border-box;
+    align-self: stretch; 
 }
 
-#filtros::-webkit-scrollbar {
-    width: 5px;
+#gorras {
+    flex-grow: 1;
+    box-sizing: border-box;
+    border-top: none !important;
 }
-
-#filtros::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-#filtros::-webkit-scrollbar-thumb {
-    background: #c43737;
-    border-radius: 10px;
-}
-
 
 hr {
     border: 0;
@@ -246,9 +224,6 @@ hr {
    accent-color: red; 
 }
 
-main {
-    display: flex;
-}
 
 footer {
     font-family: 'Bebas Neue', sans-serif;
@@ -269,9 +244,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    main {
-        flex-direction: column;
-    }
 
     #filtros {
         width: 100% !important;
@@ -320,15 +292,11 @@ footer {
 }
 
 @media (min-width: 769px) {
-    main {
-        display: flex;
-        flex-direction: row;
-    }
 
     #filtros {
         width: 280px;
         min-width: 280px;
-        border-right: 1px solid #ddd;
+        border-right: 2px solid #c43737;
         height: 100vh;
         position: sticky;
         top: 0;
