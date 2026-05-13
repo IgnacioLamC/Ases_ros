@@ -15,6 +15,20 @@ body {
 
 }
 
+#gorras {
+    border-left: 3px solid #c43737;
+    border-top: 3px solid #c43737;
+    height: auto;
+}
+
+main {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    border: none;
+}
+
+
 p {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
@@ -100,6 +114,7 @@ button:hover {
     gap: 20px;
     width: 100%;
     padding: 10px;
+    border-top: #c43737 2px solid;
 }
 
 .card {
@@ -127,15 +142,34 @@ button:hover {
 #filtros {
     text-align: center;
     color: black;
-    border: 2px solid #c43737;
     max-width: 400%;
     font-family: 'Bebas Neue', sans-serif;
+    border: none;
     font-weight: 400;
     font-style: normal;
-    height: 100%;
-    width: 100%;
-
+    border-right: 1px solid #c43737;
+    scrollbar-color: #c43737 transparent;
+    scrollbar-gutter: v0;
+    height: auto;
+    width: 280%;
+    min-width: 280px;
+    padding-right: 10px;
+    display: block;
 }
+
+#filtros::-webkit-scrollbar {
+    width: 5px;
+}
+
+#filtros::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#filtros::-webkit-scrollbar-thumb {
+    background: #c43737;
+    border-radius: 10px;
+}
+
 
 hr {
     border: 0;
@@ -144,15 +178,6 @@ hr {
     width: 100%;
 }
 
-@media (min-width: 768px) {
-    #filtros {
-        width: 280px;
-        min-width: 280px;
-        margin-bottom: 0;
-        position: sticky;
-        top: 20px;
-    }
-}
 
 #rango {
     accent-color: red;
@@ -162,6 +187,64 @@ hr {
     accent-color: red;
 }
 
+#descuentosFiltro {
+    accent-color: red;
+}
+
+#stockFiltro {
+    accent-color: red;
+}
+
+#cajaJordan {
+    accent-color: red;
+}
+
+#cajaSupreme {
+    accent-color: red;
+}
+
+#cajaNocta {
+    accent-color: red;
+}
+
+#cajaNike {
+    accent-color: red;
+}
+
+#talle39 {
+    accent-color: red;
+}
+#talle40 {
+    accent-color: red;
+}
+#talle41 {
+    accent-color: red;
+}
+#talle42 {
+    accent-color: red;
+}
+#talle43 {
+    accent-color: red;
+}
+#talle44 {
+    accent-color: red;
+}
+#talle45 {
+    accent-color: red;
+}
+
+#tallesm {
+    accent-color: red;
+}
+#talleml {
+    accent-color: red;
+}
+#tallelxl {
+    accent-color: red;
+}
+#talleUnico {
+   accent-color: red; 
+}
 
 main {
     display: flex;
@@ -185,48 +268,75 @@ footer {
 
 }
 
-
-@media (max-width: 768px) {
-    .buscadorProducto {
-        flex-direction: column;
-
-        gap: 15px;
-    }
-
-    #navegacion {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    #logoBusqueda {
-        width: 100%;
-    }
-}
-
 @media (max-width: 768px) {
     main {
         flex-direction: column;
     }
 
     #filtros {
-        width: 100%;
+        width: 100% !important;
         max-width: 100%;
-        position: relative;
-        top: 0;
+        padding: 20px;
+        border-bottom: 2px solid #c43737;
+
+        display: block;
+        text-align: center;
+    }
+
+
+    #marcasFiltros,
+    #tallesFiltros,
+    #precioFiltro,
+    #tipoProductoFiltro,
+    #descuentosFiltro,
+    #stockFiltro {
         margin-bottom: 20px;
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        max-width: 300px;
     }
 
     .productos {
-        justify-items: center;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
     }
 
-    @media (max-width: 480px) {
-        footer {
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            text-align: center;
-        }
+    .card {
+        width: 100%;
+    }
+
+    .buscadorProducto {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #navegacion {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #filtros {
+        width: 280px;
+        min-width: 280px;
+        border-right: 1px solid #ddd;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        overflow-y: auto;
+    }
+
+    .productos {
+        flex: 1;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 }
