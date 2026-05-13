@@ -1,101 +1,241 @@
-/* Estilos generales */
 body {
-    font-family: 'Bebas Neue', sans-serif; /* Usando la fuente de tu marca */
+    font-family: 'Bebas Neue', sans-serif;
     background-color: #f4f4f4;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 }
 
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    color: #fff;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* FORMULARIO */
 #form-ases {
     background: white;
-    max-width: 500px;
-    margin: 0 auto 40px auto;
-    padding: 30px;
+    padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     gap: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-#form-ases h2 {
-    text-align: center;
-    color: #333;
-    letter-spacing: 1px;
-}
-
-/* Inputs y Selects */
-input, select {
+input,
+select,
+textarea {
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-input:focus, select:focus {
-    outline: none;
-    border-color: #000; /* Negro como tu logo */
+/* Contenedor de descuento mejorado */
+.contenedor-descuento {
+    background-color: #fff0f0;
+    border: 2px dashed #ff4d4d;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    /* Centra todo el contenido */
 }
 
-/* El botón de carga */
-button[type="submit"] {
-    background-color: #000;
-    color: white;
+.switch-label {
+    display: flex;
+    align-items: center;
+    /* Alinea el check con el texto verticalmente */
+    justify-content: center;
+    gap: 10px;
+    /* Separa el cuadradito del texto */
+    color: #ff4d4d;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Tamaño fijo para el checkbox para que no se deforme */
+#check-descuento {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+#precio-oferta {
+    width: 100%;
+    border: 1px solid #ff4d4d;
+}
+
+#btn-cargar {
+    background: #000;
+    color: #fff;
     padding: 15px;
     border: none;
-    border-radius: 6px;
+    font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
-    font-weight: bold;
-    transition: background 0.3s;
 }
 
-button[type="submit"]:hover {
-    background-color: #333;
-}
+/* CARDS */
 #lista-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     padding: 0;
+    list-style: none;
 }
 
 .card {
     background: white;
-    border-radius: 10px;
-    overflow: hidden;
     padding: 15px;
+    border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .card img {
     width: 100%;
     height: 180px;
-    object-fit: cover; /* Para que las fotos de zapas no se deformen */
+    object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 10px;
 }
 
-.card h4 {
-    margin: 10px 0 5px;
-    text-transform: uppercase;
+
+/* --- BREAKPOINTS --- */
+
+/* 1. DESKTOP (> 1024px) */
+@media (min-width: 1025px) {
+    #form-ases {
+        max-width: 600px;
+        margin: 40px auto;
+    }
+
+    #lista-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
-/* Estilo para el precio de oferta */
-.card b {
+/* 2. TABLET Y CELULAR (Menos de 1024px) */
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: block;
+        /* Aparecen las 3 rayitas */
+    }
+
+    .nav-links {
+        display: none;
+        /* Se oculta el menú horizontal */
+        flex-direction: column;
+        /* Pone los links uno abajo del otro */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        padding: 20px 0;
+        gap: 15px;
+        text-align: center;
+        border-top: 1px solid #333;
+    }
+
+    /* Clase que activa el JS para mostrar el menú */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        width: 100%;
+        display: block;
+        padding: 10px 0;
+    }
+
+    #lista-cards {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 por fila en tablet */
+    }
+}
+
+/* 3. SOLO CELULAR CHICO (< 480px) */
+@media (max-width: 480px) {
+    #lista-cards {
+        grid-template-columns: 1fr;
+        /* 1 por fila en celu */
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+}
+
+/* Estilos para los precios en las cards */
+.precios {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.precio-tachado {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9em;
+}
+
+.precio-oferta {
+    color: #ff4d4d;
+    font-weight: bold;
     font-size: 1.2em;
 }
 
-/* Botón eliminar */
-.card button {
-    margin-top: 15px;
-    background: #ff4d4d;
-    border-radius: 4px;
-    font-family: sans-serif;
+.precio-normal {
     font-weight: bold;
+    margin: 10px 0;
+}
+
+.desc-card {
+    font-size: 0.85em;
+    font-family: sans-serif;
+    color: #666;
+    height: 40px;
+    /* Para que todas las cards midan lo mismo */
+    overflow: hidden;
 }
