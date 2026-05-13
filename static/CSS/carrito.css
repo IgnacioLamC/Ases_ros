@@ -10,46 +10,42 @@
   color: black;
   font-size: 200%;
   margin: 4%;
- background-color:white;
+  background-color: white;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 10px;
   padding: 15px;
-  
 }
-.logo{
-   display: flex;
-   justify-content: center;
+.logo {
+  display: flex;
+  justify-content: center;
 }
 
 /*Nav copado*/
 nav {
-    
-font-family: "Bebas Neue", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-style: normal;
   display: flex;
-    justify-content: center; 
-    align-items: center; 
-    background: #c43737;
-    padding: 15px 40px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #000000;
+  justify-content: center;
+  align-items: center;
+  background: #c43737;
+  padding: 15px 40px;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
   padding: 20px;
-  
 }
 .menu {
-    display: flex;
-    gap: 30px;
- 
+  display: flex;
+  gap: 30px;
 }
 
 .menu a {
-    color: black;
-    text-decoration: none;
-    font-weight: 500;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .menu a:hover {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 footer {
   background-color: #c43737;
@@ -69,21 +65,43 @@ aside {
   background-color: #b9b9b9;
   flex: 2;
   border-radius: 4px;
+  border: 1px solid black;
+  color: #000000;
+  font-family: "Bebas Neue", sans-serif;
+  margin: 10px;
+  font-style: normal;
+}
+.datos-pedido {
+  margin: 7%;
+}
+button {
+  font-family: "Bebas Neue", sans-serif;
+  font-style: normal;
+  margin: 10px auto;
+
+  width: 100%;
+  padding: 10px;
+  background-color: #2e2e2e;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background: rgb(0, 0, 0);
 }
 .carrito {
   display: flex;
-  
 }
 .seccion-lista-compras {
   flex: 5;
-
 }
 .lista-productos {
   list-style: none;
   padding: 5%;
 }
-h3{
-    font-family: "Bebas Neue", sans-serif;
+h3 {
+  font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
   display: flex;
@@ -91,10 +109,9 @@ h3{
   padding-left: 5%;
   color: black;
   font-size: 25px;
- 
 }
 h5 {
-  font-size: 20px;
+  font-size: 24px;
   color: black;
   font-weight: 500;
 }
@@ -113,36 +130,36 @@ h5 {
   transition: 0.3s;
   margin-bottom: 2%;
 }
-.item-carrito:hover { 
-transform: scale(1.03);
+.item-carrito:hover {
+  transform: scale(1.03);
 }
 .producto-info {
   min-width: 0px;
 }
 footer {
-    font-family: 'Bebas Neue', sans-serif;
-   
-    font-style: normal;
-    display: flex;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgb(0, 0, 0);
-    color: whitesmoke;
-    flex: content;
-justify-content: space-evenly;
-padding-top: 10px;
-padding-bottom:10px;
+  font-family: "Bebas Neue", sans-serif;
+
+  font-style: normal;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: whitesmoke;
+  flex: content;
+  justify-content: space-evenly;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-a{
-    text-decoration: none;
-   color:white
+a {
+  text-decoration: none;
+  color: white;
 }
 .contactos {
-    display: flex;
-    align-items: center; 
-    gap: 10px;           
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 footer ul {
-     list-style: none;
+  list-style: none;
 }
