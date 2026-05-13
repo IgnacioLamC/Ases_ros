@@ -1,11 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Panel ASES - Admin</title>
+    <link rel="stylesheet" href="../CSS/estilos-crud.css">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue" rel="stylesheet">
 </head>
+
 <body>
-    
+    <header class="navbar">
+        <div class="logo">ASES ADMIN</div>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <nav class="nav-links" id="nav-menu">
+            <a href="#">Inicio</a>
+            <a href="#">Stock</a>
+            <a href="#">Ventas</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Cargar Nuevo Producto</h2>
+
+        <form id="form-ases">
+            <select id="categoria" required>
+                <option value="">Seleccione Categoría</option>
+                <option value="ropa">Ropa</option>
+                <option value="zapatillas">Zapatillas</option>
+                <option value="accesorios">Accesorios</option>
+            </select>
+
+            <select id="marca" required>
+                <option value="">Seleccione Marca</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Nike">Nike</option>
+                <option value="Nocta">Nocta</option>
+                <option value="Supreme">Supreme</option>
+            </select>
+
+            <select id="talle" required disabled>
+                <option value="">Primero elija categoría</option>
+            </select>
+
+            <input type="number" id="precio" placeholder="Precio Base ($)" required>
+
+            <div class="contenedor-descuento">
+                <label class="switch-label" for="check-descuento">
+                    <input type="checkbox" id="check-descuento">
+                    <span>¿APLICAR DESCUENTO?</span>
+                </label>
+                <input type="number" id="precio-oferta" placeholder="Precio Final Oferta ($)" disabled>
+            </div>
+
+            <input type="url" id="imagen" placeholder="URL de la imagen" required>
+
+            <textarea id="descripcion" placeholder="Descripción detallada..." required></textarea>
+
+            <input type="number" id="cantidad" placeholder="Cantidad en Stock" required>
+
+            <button type="submit" id="btn-cargar">CARGAR PRODUCTO</button>
+        </form>
+
+        <div id="mensaje-exito"></div>
+
+        <section id="vista-previa">
+            <h3>Inventario Actual</h3>
+            <ul id="lista-cards"></ul>
+        </section>
+    </main>
+
+    <script src="../JS/crud,js"></script>
 </body>
+
 </html>
