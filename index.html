@@ -1,244 +1,290 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="icon" href="./assets/icons/ases_ros.ico">
-<link rel="stylesheet" href="static/CSS/home.css">
-    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue" rel="stylesheet">.
-</head>
+    <link rel="icon" href="./assets/icons/ases_ros.ico" />
+    <link rel="stylesheet" href="static/CSS/home.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bebas+Neue"
+      rel="stylesheet"
+    />
+    .
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <div class="logo">
-            <img src="assets/images/IMG_0317.jpg" alt="logoPagina" id="logo" width="100">
+      <div class="logo">
+        <img
+          src="assets/images/IMG_0317.jpg"
+          alt="logoPagina"
+          id="logo"
+          width="100"
+        />
+      </div>
+
+      <nav>
+        <input type="checkbox" id="menu-toggle"/>
+
+        <label for="menu-toggle" class="hamburguesa">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <div class="menu">
+          <a href="index.html">HOME</a>
+          <a href="templates/galeria.html">Zapatillas</a>
+          <a href="templates/galeria.html">Ropa</a>
+          <a href="templates/galeria.html">Accesorios</a>
+          <a href="templates/galeria.html">Información</a>
         </div>
-        
 
-        <nav>
+        <div class="busqueda">
+          <input type="text" placeholder="Buscar producto..." />
+          <button>Buscar</button>
 
-    <input type="checkbox" id="menu-toggle">
+          <a href="templates/carrito.html">
+            <img
+              src="assets/images/carrito.png"
+              alt="carrito logo"
+              width="30"
+            />
+          </a>
+        </div>
+      </nav>
 
-    <label for="menu-toggle" class="hamburguesa">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
-
-    <div class="menu">
-        <a href="index.html">HOME</a>
-        <a href="">Zapatillas</a>
-        <a href="">Ropa</a>
-        <a href="">Accesorios</a>
-        <a href="">Información</a>
-    </div>
-
-    <div class="busqueda">
-        <input type="text" placeholder="Buscar producto...">
-        <button>Buscar</button>
-
-        <a href="">
-            <img src="assets/images/carrito.png" alt="carrito logo" width="30">
-        </a>
-    </div>
-
-</nav>
-         
-           <hr class="barra">
-        
+      <hr class="barra" />
     </header>
 
     <main>
-        <section id="novedades">
-            <div class="carrusel-contenedor">
-                <div class="slider">
-                    <img src="assets/images/camiseta slider.jpg" id="slide-1" alt="Descripción 1" >
-                    <img src="assets/images/gorrita slider.webp" id="slide-2" alt="Descripción 2">
-                    <img src="assets/images/zapas slider.jpg" id="slide-3" alt="Descripción 3">
-                </div>
-                <div class="slider-nav">
-                    <a href="#slide-1"></a>
-                    <a href="#slide-2"></a>
-                    <a href="#slide-3"></a>
-                
-                </div>
-            </div>
-                
-        </section>
-        
- <br>
-    <h2>Productos Destacados</h2>
+      <section id="novedades">
+        <div class="carrusel-contenedor">
+          <div class="slider">
+            <img
+              src="assets/images/camiseta slider.jpg"
+              id="slide-1"
+              alt="Descripción 1"
+            />
+            <img
+              src="assets/images/gorrita slider.webp"
+              id="slide-2"
+              alt="Descripción 2"
+            />
+            <img
+              src="assets/images/zapas slider.jpg"
+              id="slide-3"
+              alt="Descripción 3"
+            />
+          </div>
+          <div class="slider-nav">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+          </div>
+        </div>
+      </section>
 
-<br>
-        <section id="productos">
-            <div>
-                <ul list-style="none">
+      <br />
+      <h2>Productos Destacados</h2>
 
-                    <li>
-                        <div class="card">
+      <br />
+      <section id="productos">
+        <div>
+          <ul list-style="none">
+            <li>
+              <div class="card">
+                <img
+                  src="assets/images/pantalonJ.jfif"
+                  alt="Pantalon Jordan"
+                  width="100"
+                />
+                <h4>Pantalon Jordan</h4>
+                <p class="precio">Precio: 23.000$</p>
+                <button id="carrito">Agregar al carrito</button>
+              </div>
+            </li>
 
-                            <img src="assets/images/pantalonJ.jfif" alt="Pantalon Jordan" width="100">
-                            <h4>Pantalon Jordan</h4>
-                            <p class="precio">Precio: 23.000$</p>
-                            <button id="carrito">Agregar al carrito</button>
-                        </div>
-                    </li>
+            <li>
+              <div class="card">
+                <img
+                  src="assets/images/camisetaJ.webp"
+                  alt="remera jordan"
+                  width="100"
+                />
+                <h4>Remera Jordan</h4>
+                <p class="precio">Precio: 89.000$</p>
+                <button id="carrito">Agregar al carrito</button>
+              </div>
+            </li>
 
-                    <li>
-                        <div class="card">
+            <li>
+              <div class="card">
+                <img
+                  src="assets/images/gorraJ.webp"
+                  alt="gorra Jordan"
+                  width="100"
+                />
+                <h4>Gorra Jordan</h4>
+                <p class="precio">Precio: 65.000$</p>
+                <button id="carrito">Agregar al carrito</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <br />
+      <h2>En Oferta</h2>
+      <br />
+      <section id="productos">
+        <div>
+          <ul list-style="none">
+            <li>
+              <div class="card-of">
+                <img
+                  src="assets/images/Nike-ACG-Logo-T-shirt-Purple.avif"
+                  alt="remera nike"
+                  width="100"
+                  height="100"
+                />
+                <img
+                  src="assets/images/fuego.png"
+                  class="oferta-logo"
+                  width="30"
+                />
+                <h4>remera nike acg</h4>
+                <s><p class="precio">Precio: 80.000$</p></s>
+                <p>rebaja 68.000$</p>
+                <button id="carrito">Agregar al carrito</button>
+              </div>
+            </li>
 
-                            <img src="assets/images/camisetaJ.webp" alt="remera jordan" width="100">
-                            <h4>Remera Jordan</h4>
-                            <p class="precio">Precio: 89.000$</p>
-                            <button id="carrito">Agregar al carrito</button>
-                        </div>
+            <li>
+              <div class="card-of">
+                <img
+                  src="assets/images/campera xd.webp"
+                  alt="campera jordan"
+                  width="100"
+                />
+                <img
+                  src="assets/images/fuego.png"
+                  class="oferta-logo"
+                  width="30"
+                />
+                <h4>campera Jordan</h4>
+                <s><p class="precio">Precio: 89.000$</p></s>
+                <p>rebaja: 75.000$</p>
+                <button id="carrito">Agregar al carrito</button>
+              </div>
+            </li>
 
-                    </li>
+            <li>
+              <div class="card-of">
+                <img
+                  src="assets/images/remerapuma.webp"
+                  alt="remera puma"
+                  width="100"
+                />
+                <img
+                  src="assets/images/fuego.png"
+                  class="oferta-logo"
+                  width="30"
+                />
+                <h4>remera puma</h4>
+                <s><p class="precio">Precio: 48.000$</p></s>
+                <p>rebaja: 39.000$</p>
+                <button id="carrito">Agregar al carrito</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-                    <li>
-                        <div class="card">
+      <br />
+      <h2>Productos</h2>
+      <br />
 
-                            <img src="assets/images/gorraJ.webp" alt="gorra Jordan" width="100">
-                            <h4>Gorra Jordan</h4>
-                            <p class="precio">Precio: 65.000$</p>
-                            <button id="carrito">Agregar al carrito</button>
-                        </div>
+      <section id="productos">
+        <div class="producto">
+          <ul list-style="none">
+            <li>
+              <div class="card">
+                <img
+                  src="assets/images/pantalonJ.jfif"
+                  alt="Pantalon Jordan"
+                  width="100"
+                />
+                <h4>Pantalon Jordan</h4>
+                <p class="precio">Precio: 23.000$</p>
+                <button id="carrito">Agregar al carrito</button>
+              </div>
+            </li>
 
-                    </li>
-                </ul>
+            <li>
+              <div class="card">
+                <img
+                  src="assets/images/camisetaJ.webp"
+                  alt="remera jordan"
+                  width="100"
+                />
+                <h4>Remera Jordan</h4>
+                <p class="precio">Precio: 89.000$</p>
+                <button id="carrito">Agregar al carrito</button>
+              </div>
+            </li>
 
-
-            </div>
-
-</section>
-<br>
-<h2>En Oferta</h2>
-<br>
-        <section id="productos">
-            <div>
-<ul list-style="none">
-
-                    <li>
-                        <div class="card-of">
-
-                            <img src="assets/images/Nike-ACG-Logo-T-shirt-Purple.avif" alt="remera nike" width="100" height="100">
-                                                        <img src="assets/images/fuego.png" class="oferta-logo" width="30">
-                            <h4>remera nike acg</h4>
-                            <s><p class="precio">Precio: 80.000$</p></s>
-                            <p>rebaja 68.000$</p>
-                            <button id="carrito">Agregar al carrito</button>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="card-of">
-
-                            <img src="assets/images/campera xd.webp" alt="campera jordan" width="100">
-                                                        <img src="assets/images/fuego.png" class="oferta-logo" width="30">
-                            <h4>campera Jordan</h4>
-                            <s><p class="precio">Precio: 89.000$</p></s>
-                            <p>rebaja: 75.000$</p>
-                            <button id="carrito">Agregar al carrito</button>
-                        </div>
-
-                    </li>
-
-                    <li>
-                        <div class="card-of">
-
-                            <img src="assets/images/remerapuma.webp" alt="remera puma" width="100">
-                            <img src="assets/images/fuego.png" class="oferta-logo" width="30">
-                            <h4>remera puma</h4>
-                            <s><p class="precio">Precio: 48.000$</p></s>
-                            <p>rebaja: 39.000$</p>
-                            <button id="carrito">Agregar al carrito</button>
-                        </div>
-
-                    </li>
-                </ul>
-
-            </div>
-
-        </section>
-
-<br>
-<h2>Productos</h2>
-<br>
-       
-<section id="productos">
-            <div class="producto">
-<ul list-style="none">
-
-                    <li>
-                        <div class="card">
-
-                            <img src="assets/images/pantalonJ.jfif" alt="Pantalon Jordan" width="100">
-                            <h4>Pantalon Jordan</h4>
-                            <p class="precio">Precio: 23.000$</p>
-                            <button id="carrito">Agregar al carrito</button>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="card">
-
-                            <img src="assets/images/camisetaJ.webp" alt="remera jordan" width="100">
-                            <h4>Remera Jordan</h4>
-                            <p class="precio">Precio: 89.000$</p>
-                            <button id="carrito">Agregar al carrito</button>
-                        </div>
-
-                    </li>
-
-                    <li>
-                        <div class="card">
-
-                            <img src="assets/images/gorraJ.webp" alt="gorra Jordan" width="100">
-                            <h4>Gorra Jordan</h4>
-                            <p class="precio">Precio: 65.000$</p>
-                            <button id="carrito">Agregar al carrito</button>
-                        </div>
-
-                    </li>
-                </ul>
-
-            </div>
-
-        </section>
-        <br>
-        <br>
+            <li>
+              <div class="card">
+                <img
+                  src="assets/images/gorraJ.webp"
+                  alt="gorra Jordan"
+                  width="100"
+                />
+                <h4>Gorra Jordan</h4>
+                <p class="precio">Precio: 65.000$</p>
+                <button id="carrito">Agregar al carrito</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <br />
+      <br />
     </main>
 
     <footer>
-
-        <div>
-               <h4>Contacto:</h4>
-            <ul class="contactos">
-             
-            <li><img src="assets/images/pngwing.com.png" alt="telefono"
-                width="20"></li>
-        <p>+54 9 341 111-1234</p>
+      <div>
+        <h4>Contacto:</h4>
+        <ul class="contactos">
+          <li>
+            <img
+              src="assets/images/pngwing.com.png"
+              alt="telefono"
+              width="20"
+            />
+          </li>
+          <p>+54 9 341 111-1234</p>
         </ul>
-       </div>
+      </div>
 
-        <div>
-            <h4>Copyright © 2025 Ases Rosario</h4>
-        </div>
+      <div>
+        <h4>Copyright © 2025 Ases Rosario</h4>
+      </div>
 
-        <div>
-            <h4>instagram:</h4>
-<ul class="contactos">     
-    <li><img src="assets/images/pngegg.png" alt="logoinstagram" width="30"></li>
-  <a href="https://www.instagram.com/ases.ros/">ases.ros</a>
-</ul>
-        </div>
-
+      <div>
+        <h4>instagram:</h4>
+        <ul class="contactos">
+          <li>
+            <img
+              src="assets/images/pngegg.png"
+              alt="logoinstagram"
+              width="30"
+            />
+          </li>
+          <a href="https://www.instagram.com/ases.ros/">ases.ros</a>
+        </ul>
+      </div>
     </footer>
-
-
-</body>
-
+  </body>
 </html>
