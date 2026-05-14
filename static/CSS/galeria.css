@@ -7,7 +7,7 @@
 
 main {
     display: flex;
-    align-items: stretch; 
+    align-items: stretch;
     width: 100%;
     border-top: 2px solid #c43737;
 }
@@ -140,7 +140,7 @@ button:hover {
     font-weight: 400;
     border-right: 2px solid #c43737;
     box-sizing: border-box;
-    align-self: stretch; 
+    align-self: stretch;
 }
 
 #gorras {
@@ -192,21 +192,27 @@ hr {
 #talle39 {
     accent-color: red;
 }
+
 #talle40 {
     accent-color: red;
 }
+
 #talle41 {
     accent-color: red;
 }
+
 #talle42 {
     accent-color: red;
 }
+
 #talle43 {
     accent-color: red;
 }
+
 #talle44 {
     accent-color: red;
 }
+
 #talle45 {
     accent-color: red;
 }
@@ -214,14 +220,17 @@ hr {
 #tallesm {
     accent-color: red;
 }
+
 #talleml {
     accent-color: red;
 }
+
 #tallelxl {
     accent-color: red;
 }
+
 #talleUnico {
-   accent-color: red; 
+    accent-color: red;
 }
 
 
@@ -244,40 +253,52 @@ footer {
 }
 
 @media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        border-top: none;
+    }
+}
 
-    #filtros {
-        width: 100% !important;
-        max-width: 100%;
-        padding: 20px;
-        border-bottom: 2px solid #c43737;
+@media (max-width: 768px) {
 
-        display: block;
-        text-align: center;
+    main {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
     }
 
 
-    #marcasFiltros,
-    #tallesFiltros,
-    #precioFiltro,
-    #tipoProductoFiltro,
-    #descuentosFiltro,
-    #stockFiltro {
-        margin-bottom: 20px;
-        display: inline-block;
-        vertical-align: top;
+   #filtros {
+        width: 120px !important; 
+        min-width: 120px;
+        max-width: 120px;
+        
+        border-right: 1px solid #c43737;
+        border-top: none; 
+        border-bottom: none;
+        padding: 5px;
+        font-size: 12px;
+    }
+
+
+    #marcasFiltros, #tallesFiltros, #precioFiltro {
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
+        margin-bottom: 10px;
     }
+
 
     .productos {
-        grid-template-columns: repeat(2, 1fr);
+        
+        grid-template-columns: 1fr; 
+        padding: 5px;
         gap: 10px;
-        padding: 10px;
     }
 
     .card {
-        width: 100%;
+        width: 60%;
     }
+
 
     .buscadorProducto {
         flex-direction: column;
@@ -289,22 +310,21 @@ footer {
         justify-content: center;
         gap: 10px;
     }
-}
 
-@media (min-width: 769px) {
-
-    #filtros {
-        width: 280px;
-        min-width: 280px;
-        border-right: 2px solid #c43737;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-        overflow-y: auto;
+    #filtros h2 {
+        font-size: 14px;
+        margin-top: 10px; 
+        margin-bottom: 5px;
+        white-space: nowrap;
+        text-align: center;
     }
 
-    .productos {
-        flex: 1;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    #rango {
+        width: 100%;
+        max-width: 100px;  
+        display: block;
+        margin: 0 auto;
     }
+
+
 }
