@@ -1,3 +1,425 @@
-#carta {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#menu-toggle {
+    display: none;
+}
+
+body{ background: linear-gradient(rgba(255, 255, 255, 0.795), rgba(255, 255, 255, 0.836)), url("fondocartas.jpg");
+ 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+}
+
+.logo{
+   display: flex;
+   justify-content: center;
+}
+
+nav {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400; 
+    font-style: normal;
+
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background: white;
+    padding: 15px 40px;
+    border-top: 2px solid #c43737;
+    border-bottom: 2px solid #c43737;
+}
+
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu a:hover {
+    color: red;
+}
+
+
+.busqueda {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.busqueda input {
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.busqueda button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400; 
+    font-style: normal;
+    padding: 8px 13px;
+    background: #c43737;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.busqueda button:hover {
+    background: red;
+}
+
+header h1{ 
+    color: red;
+} 
+
+ h2{
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400; 
+    font-style: normal;
+ }
+
+ hr{
+    background-color: #c43737;
+   max-width: auto;
+margin-top: 10px;
+margin-bottom: 20px;
+    height: 30px;
+ }
+
+button { 
+margin-top: 10px; 
+width: 100%; 
+padding: 10px; 
+background-color: #c43737; 
+border: none; 
+color: white; 
+cursor:pointer; 
+border-radius: 5px; 
+} 
+button:hover { 
+background:red } 
+
+.content { flex: 1; 
+padding: 20px;} 
+
+.productos { 
+display: grid; 
+grid-template-columns: repeat(3, 1fr); 
+gap: 20px; 
+} 
+
+.card { 
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400; 
+    font-style: normal;
+background: whitesmoke; 
+border: 1px solid red; 
+border-radius: 10px; 
+padding: 15px; 
+position: relative; 
+transition: 0.3s; 
+} 
+
+.card-of { 
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400; 
+    font-style: normal;
+background: whitesmoke; 
+border: 1px solid red; 
+border-radius: 10px; 
+padding: 15px; 
+position: relative; 
+transition: 0.3s; 
+} 
+
+.oferta-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+     z-index: 10;
+}
+
+.card:hover { 
+transform: scale(1.03);
+} 
+
+.enlacesNav a { 
+color:black; 
+}
+
+#productos ul{
+display: flex;
+gap: 30px;
+list-style:none;
+justify-content: center
+
+}
+
+footer {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400; 
+    font-style: normal;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+    flex: content;
+justify-content: space-evenly;
+padding-top: 10px;
+padding-bottom:10px;
+}
+a{
+    text-decoration: none;
+   color:white
+}
+.contactos {
+    display: flex;
+    align-items: center; 
+    gap: 10px;           
+}
+footer ul {
+     list-style: none;
+}
+
+/* SLIDER */
+.novedades{
+    padding: 2rem;
+}
+
+/* CONTENEDOR */
+.carrusel-contenedor{
+    position: relative;
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
+/* SLIDER */
+.slider{
+    display: flex;
+
+    animation: carrusel 12s infinite;
+}
+
+/* IMAGENES */
+.slider img{
+    width: 100%;
+
+    flex: 0 0 100%;
+
+    height: 420px;
+
+    object-fit: cover;
+}
+
+/* ANIMACION */
+@keyframes carrusel {
+
+    /* IMAGEN 1 */
+    0%, 30%{
+        transform: translateX(0%);
+    }
+
+    /* IMAGEN 2 */
+    35%, 65%{
+        transform: translateX(-100%);
+    }
+
+    /* IMAGEN 3 */
+    70%, 95%{
+        transform: translateX(-200%);
+    }
+
+    /* REINICIO */
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+/* FIN SLIDER */
+
+/*tamaño de pantalla computadora*/
+@media screen and (min-width: 769px) {
+
+    .hamburguesa {
+        display: none;
+    }
+
+    .menu {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        background: transparent;
+        width: auto;
+        height: auto;
+        padding: 0;
+        box-shadow: none;
+    }
+}
+
+/* tablet */
+@media screen and (max-width: 768px) {
+
+    nav {
+        position: relative;
+        padding: 15px;
+    }
+
+   
+    .hamburguesa {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .hamburguesa span {
+        width: 30px;
+        height: 4px;
+        background: black;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    /* menu superpuesto */
+    .menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+
+        background: white;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 30px;
+
+        transition: left 0.3s ease;
+
+        z-index: 1000;
+
+        box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    }
+
     
+    #menu-toggle:checked + .hamburguesa + .menu {
+        left: 0;
+    }
+
+
+    .menu a {
+        color: black;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-family: 'Bebas Neue', sans-serif;
+        transition: 0.2s;
+    }
+
+    .menu a:hover {
+        color: red;
+    }
+
+ 
+    .busqueda {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .busqueda input {
+        width: 60%;
+        padding: 8px;
+    }
+
+    .busqueda button {
+        width: auto;
+        padding: 8px 12px;
+    }
+
+    .busqueda img {
+        width: 25px;
+    }
+    .carrusel-contenedor{
+        max-width: 95%;
+    }
+
+    .slider img{
+        height: 300px;
+    }
+}
+
+
+
+/*celu*/
+
+@media screen and (max-width: 480px) {
+.novedades{
+        padding: 1rem;
+    }
+
+    .slider img{
+        height: 200px;
+    }
+
+    .slider-nav a{
+        width: 8px;
+        height: 8px;
+    }
+
+    .menu {
+        width: 85%;
+    }
+
+    .menu a {
+        font-size: 1.3rem;
+    }
+
+    .busqueda {
+        gap: 8px;
+    }
+
+    .busqueda input {
+        width: 55%;
+        padding: 6px;
+    }
+
+    .busqueda button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .busqueda img {
+        width: 22px;
+    }
 }
