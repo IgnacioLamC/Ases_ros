@@ -252,72 +252,198 @@ footer {
 
 }
 
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
-        border-top: none;
-    }
+#btn-menu {
+    display: none;
 }
 
+#label-hamburguesa {
+    display: none;
+}
+
+
 @media (max-width: 768px) {
 
+
+
     main {
+
         display: flex;
+
         flex-direction: row;
+
         align-items: stretch;
+
     }
 
 
-   #filtros {
-        width: 120px !important; 
-        min-width: 120px;
-        max-width: 120px;
-        
-        border-right: 1px solid #c43737;
-        border-top: none; 
-        border-bottom: none;
-        padding: 5px;
-        font-size: 12px;
+
+  #filtros {
+
+        position: fixed;
+
+        top: 0;
+
+        left: -100%;
+
+        width: 260px !important;
+
+        height: 100vh;
+
+        background-color: white;
+
+        z-index: 999;
+
+        transition: all 0.5s;
+
+        padding: 70px 20px 20px 20px;
+
+        box-shadow: 5px 0px 15px rgba(0,0,0,0.3);
+
+        overflow-y: auto;
+
+        display: block !important;
+
+        text-align: left;
+
     }
+
+
+
+    #btn-menu:checked ~ #filtros {
+
+        left: 0;
+
+    }
+
+
+
+    #marcasFiltros, #tallesFiltros, #precioFiltro, #tipoProductoFiltro {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        display: block;
+
+        margin-bottom: 15px;
+
+    }
+
+
+
+    #rango {
+
+        width: 100%;
+
+    }
+
+
+
+    #gorras {
+
+        width: 100%;
+
+        padding-top: 50px;
+
+    }
+
+
+
+    #btn-menu:checked ~ #filtros {
+
+        left: 0;
+
+    }
+
+
+
+    #btn-menu:checked + #label-hamburguesa span:nth-child(1) {
+
+        transform: rotate(45deg) translate(8px, 8px);
+
+    }
+
+    #btn-menu:checked + #label-hamburguesa span:nth-child(2) {
+
+        opacity: 0;
+
+    }
+
+    #btn-menu:checked + #label-hamburguesa span:nth-child(3) {
+
+        transform: rotate(-45deg) translate(6px, -7px);
+
+    }
+
 
 
     #marcasFiltros, #tallesFiltros, #precioFiltro {
+
         width: 100%;
+
         max-width: 100%;
+
         margin-bottom: 10px;
+
     }
+
 
 
     .productos {
-        
-        grid-template-columns: 1fr; 
+
+       
+
+        grid-template-columns: 1fr;
+
         padding: 5px;
+
         gap: 10px;
+
     }
 
+
+
     .card {
+
         width: 60%;
+
     }
+
+
+
 
 
     .buscadorProducto {
+
         flex-direction: column;
+
         gap: 15px;
+
     }
 
+
+
     #navegacion {
+
         flex-wrap: wrap;
+
         justify-content: center;
+
         gap: 10px;
+
     }
+
+
 
     #filtros h2 {
         font-size: 14px;
-        margin-top: 10px; 
+        margin-top: 10px;
         margin-bottom: 5px;
         white-space: nowrap;
         text-align: center;
     }
+
+
 
     #rango {
         width: 100%;
@@ -327,4 +453,33 @@ footer {
     }
 
 
+
+    #label_hamburguesa
+
+    {
+        display: flex;
+        flex-direction: column;
+        width: 30px;
+        height: 25px;
+        justify-content: space-between;
+        cursor: pointer;
+        padding: 5px;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 4px;
+    }
+
+
+
+    #label_hamburguesa span {
+        width: 100%;
+        height: 4px;
+        background-color: #c43737;
+        border-radius: 2px;
+        transition: all 0.3s;
+    }
 }
+
