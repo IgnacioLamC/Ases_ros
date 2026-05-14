@@ -263,177 +263,47 @@ footer {
 
 @media (max-width: 768px) {
 
-
-
     main {
-
-        display: flex;
-
-        flex-direction: row;
-
-        align-items: stretch;
-
-    }
-
-
-
-  #filtros {
-
-        position: fixed;
-
-        top: 0;
-
-        left: -100%;
-
-        width: 260px !important;
-
-        height: 100vh;
-
-        background-color: white;
-
-        z-index: 999;
-
-        transition: all 0.5s;
-
-        padding: 70px 20px 20px 20px;
-
-        box-shadow: 5px 0px 15px rgba(0,0,0,0.3);
-
-        overflow-y: auto;
-
         display: block !important;
-
-        text-align: left;
-
-    }
-
-
-
-    #btn-menu:checked ~ #filtros {
-
-        left: 0;
-
-    }
-
-
-
-    #marcasFiltros, #tallesFiltros, #precioFiltro, #tipoProductoFiltro {
-
         width: 100%;
+    }
 
-        max-width: 100%;
+    #filtros {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 260px !important;
+    height: 100vh;
+    background-color: white;
+    z-index: 999;
+    transition: all 0.5s;
+    padding: 70px 20px 100px 20px;
+    overflow-y: auto;
+    display: block !important;
+    text-align: center;
+}
 
+    #marcasFiltros,
+    #tallesFiltros,
+    #precioFiltro,
+    #tipoProductoFiltro {
         display: block;
-
+        width: 100%;
         margin-bottom: 15px;
-
+        text-align: center;
     }
 
-
-
-    #rango {
-
-        width: 100%;
-
+    #tallesFiltros button {
+        display: inline-block;
+        margin: 5px 2px;
     }
 
-
-
-    #gorras {
-
-        width: 100%;
-
-        padding-top: 50px;
-
+    #marcasFiltros label,
+    #tipoProductoFiltro label,
+    #marcasFiltros span {
+        display: inline-block;
+        white-space: nowrap;
     }
-
-
-
-    #btn-menu:checked ~ #filtros {
-
-        left: 0;
-
-    }
-
-
-
-    #btn-menu:checked + #label-hamburguesa span:nth-child(1) {
-
-        transform: rotate(45deg) translate(8px, 8px);
-
-    }
-
-    #btn-menu:checked + #label-hamburguesa span:nth-child(2) {
-
-        opacity: 0;
-
-    }
-
-    #btn-menu:checked + #label-hamburguesa span:nth-child(3) {
-
-        transform: rotate(-45deg) translate(6px, -7px);
-
-    }
-
-
-
-    #marcasFiltros, #tallesFiltros, #precioFiltro {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        margin-bottom: 10px;
-
-    }
-
-
-
-    .productos {
-
-       
-
-        grid-template-columns: 1fr;
-
-        padding: 5px;
-
-        gap: 10px;
-
-    }
-
-
-
-    .card {
-
-        width: 60%;
-
-    }
-
-
-
-
-
-    .buscadorProducto {
-
-        flex-direction: column;
-
-        gap: 15px;
-
-    }
-
-
-
-    #navegacion {
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        gap: 10px;
-
-    }
-
-
 
     #filtros h2 {
         font-size: 14px;
@@ -443,20 +313,14 @@ footer {
         text-align: center;
     }
 
-
-
     #rango {
         width: 100%;
-        max-width: 100px;  
+        max-width: 100px;
         display: block;
         margin: 0 auto;
     }
 
-
-
-    #label_hamburguesa
-
-    {
+    #label_hamburguesa {
         display: flex;
         flex-direction: column;
         width: 30px;
@@ -472,8 +336,6 @@ footer {
         border-radius: 4px;
     }
 
-
-
     #label_hamburguesa span {
         width: 100%;
         height: 4px;
@@ -481,5 +343,48 @@ footer {
         border-radius: 2px;
         transition: all 0.3s;
     }
-}
 
+    #btn-menu:checked~#filtros {
+        left: 0;
+    }
+
+    #btn-menu:checked+#label_hamburguesa span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    #btn-menu:checked+#label_hamburguesa span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #btn-menu:checked+#label_hamburguesa span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -7px);
+    }
+
+    #gorras {
+        width: 100%;
+        padding-top: 40px;
+        margin-top: -10px
+    }
+
+    .productos {
+        grid-template-columns: 1fr;
+        padding: 0px 5px;
+        gap: 10px;
+        margin-top: 0
+    }
+
+    .card {
+        width: 50%;
+    }
+
+    .buscadorProducto {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #navegacion {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
