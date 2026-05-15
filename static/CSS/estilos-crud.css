@@ -81,10 +81,8 @@ textarea {
 .switch-label {
     display: flex;
     align-items: center;
-    /* Alinea el check con el texto verticalmente */
     justify-content: center;
     gap: 10px;
-    /* Separa el cuadradito del texto */
     color: #ff4d4d;
     font-weight: bold;
     cursor: pointer;
@@ -153,17 +151,16 @@ textarea {
 }
 
 /* 2. TABLET Y CELULAR (Menos de 1024px) */
+/* 2 por fila en tablet */
 @media (max-width: 1024px) {
     .menu-toggle {
         display: block;
-        /* Aparecen las 3 rayitas */
+       
     }
 
     .nav-links {
         display: none;
-        /* Se oculta el menú horizontal */
         flex-direction: column;
-        /* Pone los links uno abajo del otro */
         position: absolute;
         top: 60px;
         left: 0;
@@ -175,7 +172,6 @@ textarea {
         border-top: 1px solid #333;
     }
 
-    /* Clase que activa el JS para mostrar el menú */
     .nav-links.active {
         display: flex;
     }
@@ -189,15 +185,16 @@ textarea {
 
     #lista-cards {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 por fila en tablet */
+        
     }
 }
 
 /* 3. SOLO CELULAR CHICO (< 480px) */
+/* 1 por fila en celu */
 @media (max-width: 480px) {
     #lista-cards {
         grid-template-columns: 1fr;
-        /* 1 por fila en celu */
+        
     }
 
     .logo {
@@ -230,12 +227,115 @@ textarea {
     font-weight: bold;
     margin: 10px 0;
 }
-
+ /* Para que todas las cards midan lo mismo */
 .desc-card {
     font-size: 0.85em;
     font-family: sans-serif;
     color: #666;
     height: 40px;
-    /* Para que todas las cards midan lo mismo */
     overflow: hidden;
+}
+/* --- NUEVOS ESTILOS PARA STOCK Y ACCIONES --- */
+
+.stock-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: #f8f8f8;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.stock-control button {
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.card-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.btn-edit, .btn-del {
+    flex: 1;
+    padding: 8px;
+    font-size: 11px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-edit { background: #4da3ff; color: white; }
+.btn-del { background: #ff4d4d; color: white; }
+
+/* Contenedor de Destacados */
+.contenedor-destacado {
+    background-color: #fffbeb; 
+    border: 2px dashed #ffb700;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center; 
+}
+
+.switch-label-destacado {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    color: #b88600;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Tamaño fijo para el checkbox de destacado */
+#check-destacado {
+    width: 18px;
+    height: 18px;
+    margin: 0; 
+    cursor: pointer;
+}
+
+/* Estilo para el título de la card si es destacado */
+.card h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.estrella-destacado {
+    color: #ffb700;
+    font-size: 1.2rem;
+}
+
+/* Clase para resaltar el stock en cero */
+.stock-alerta {
+    color: #ff4d4d;
+    font-weight: 800;
+    animation: titileo 1.5s infinite;
+}
+
+@keyframes titileo {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+#mensaje-exito {
+    text-align: center;
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 10px;
 }
