@@ -235,24 +235,25 @@ footer {
     display: none;
 }
 
-
 @media (max-width: 768px) {
 
     header {
         display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
         padding: 10px 15px;
     }
 
     #logo {
-        width: auto;
-        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
     }
 
     #logo img {
-        width: 50%;
+        width: 120px;
         height: auto;
         display: block;
     }
@@ -416,6 +417,5 @@ footer {
     footer a,
     footer p {
         font-size: 12px;
-
     }
 }
