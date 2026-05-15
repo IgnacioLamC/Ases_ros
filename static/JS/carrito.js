@@ -19,9 +19,8 @@ localStorage.removeItem("carrito");
 if (localStorage.getItem("carrito")) {
   carrito = JSON.parse(localStorage.getItem("carrito"));
 } else {
-  localStorage.setItem("carrito", JSON.stringify([]));
-  //  carrito = JSON.parse(localStorage.getItem("carrito"));
-  carrito = [{ id: "1", cantidad: "2" }];
+  localStorage.setItem("carrito", JSON.stringify([{ id: "2", cantidad: "2" }]));
+  carrito = JSON.parse(localStorage.getItem("carrito"));
 }
 
 // Mostrar productos en el carrito
@@ -43,7 +42,7 @@ function mostrarProductos() {
                         <p>Total: $${Number(productoCompleto.precioOriginal) * Number(producto.cantidad)}</p>
                     </div>
                     <div>
-                        <button class="btn-borrar" data-id="${producto.id}>Borrar</button>
+                        <button class="btn-borrar" data-id="${producto.id}">Borrar</button>
                     </div>     
                 </div>
             `;
@@ -98,14 +97,12 @@ function actualizarResumen() {
   resumen.innerHTML = `
         <div class="datos-pedido">
             <h3>Resumen del pedido:</h3>
-
             <p>Subtotal: $${subtotal.toFixed(2)}</p>
             <p>Envío: $${envio.toFixed(2)}</p>
             <p>Impuestos: $${impuestos.toFixed(2)}</p>
             <p>Cupón: -$${descuento.toFixed(2)}</p>
             <p>Total: $${total.toFixed(2)}</p>
         </div>
-
         <div>
             <form id="form-cupon">
                 <input  type="text" id="input-cupon" placeholder="Código del cupón">
@@ -115,11 +112,9 @@ function actualizarResumen() {
                 </button>
             </form>
         </div>
-
         <button id="finalizar">
             Finalizar compra
         </button>
-
         <div>
             <img src="../assets/icons/tarjeta.png" alt="tarjetas" width="100px">
         </div>
