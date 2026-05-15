@@ -38,17 +38,33 @@ function mostrarProductos() {
                     <div class="producto-info">
                         <h5>${productoCompleto.descripcion}</h5>
                         <p>Talle: ${productoCompleto.talle}</p>
-                        <p>Cantidad: <input type="number" min="1" step="1" value="${producto.cantidad}"></p>
+                        <p>Cantidad: ${producto.cantidad}</p>
                         <p>Por prenda: $${productoCompleto.precioOriginal}</p>
                         <p>Total: $${Number(productoCompleto.precioOriginal) * Number(producto.cantidad)}</p>
                     </div>
                     <div>
-                        <button>Borrar</button>
+                        <button class="btn-borrar" data-id="${producto.id}>Borrar</button>
                     </div>     
                 </div>
             `;
     console.log("va");
     compras.appendChild(li);
+
+    // Borrar producto del carrito
+    const btnBorrar = li.querySelector(".btn-borrar");
+
+    btnBorrar.addEventListener("click", () => {
+
+    carrito = carrito.filter(
+        (p) => parseInt(p.id) !== parseInt(producto.id)
+    );
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    mostrarProductos();
+    actualizarResumen();
+});
+
   });
 }
 
