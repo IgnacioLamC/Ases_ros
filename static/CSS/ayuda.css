@@ -83,6 +83,10 @@ nav {
     border-bottom: 2px solid #c43737;
 }
 
+nav a {
+    text-decoration: none;
+}
+
 .mapa{
     width: 100%;
     height: auto;
@@ -158,7 +162,49 @@ footer ul {
      list-style: none;
 }
 
+footer a{
+    text-decoration: none;
+}
+
 @media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .busqueda {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .busqueda input {
+        width: 70%;
+    }
+
+    .desplegable {
+        width: 95%;
+    }
+
+    .mapa {
+        width: 100%;
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 480px) {
 
     nav {
         flex-direction: column;
