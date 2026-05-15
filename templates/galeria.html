@@ -14,24 +14,22 @@
 <body>
 
     <header>
-        <div class="buscadorProducto">
 
-            <div id="logo">
-                <img src="../assets/images/ases_ros.png" alt="logo">
-            </div>
+        <div id="logo">
+            <img src="../assets/images/ases_ros.png" alt="logo">
+        </div>
+
+        <div class="buscadorProducto">
             <nav id="navegacion">
                 <a href="">Zapatillas</a>
                 <a href="">Ropa</a>
                 <a href="">Accesorios</a>
                 <a href="">Contacto</a>
             </nav>
-
             <div id="logoBusqueda">
                 <input type="search" name="buscador" placeholder="Buscar accesorio">
                 <button class="btnBuscar">Buscar</button>
             </div>
-
-
         </div>
     </header>
 
@@ -51,108 +49,147 @@
                 <hr>
                 <div id="marcasFiltros">
                     <label for="opciones">Marcas</label>
-                    <br>
-                    <input type="checkbox" id="cajaJordan" name="opcion" value="marcajordan">Jordan
-                    <br>
-                    <input type="checkbox" id="cajaSupreme" name="opcion" value="marcasupreme">Supreme
-                    <br>
-                    <input type="checkbox" id="cajaNocta" name="opcion" value="marcanocta">Nocta
-                    <br>
-                    <input type="checkbox" id="cajaNike" name="opcion" value="marcanike">Nike
+                    <ul class="cajasMarcas">
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="marcajordan">
+                            <p>Jordan</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="marcasupreme">
+                            <p>Supreme</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="marcanocta">
+                            <p>Nocta</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="marcanike">
+                            <p>Nike</p>
+                        </li>
+                    </ul>
                     <hr>
                 </div>
 
 
-                <h2>Talles</h2>
-
+                <h2>Talles Ropa</h2>
+                <hr>
                 <div id="tallesFiltros">
-                    <h2>Ropa</h2>
-                    <label for="talleRopa"></label>
-                    <button id="talleS">S</button>
-
-                    <button id="talleM">M</button>
-
-                    <button id="talleL">L</button>
-
-                    <button id="talleXL">XL</button>
-
-                    <button id="talleXXL">XXL</button>
+                    <div class="btnsTalleRopa">
+                        <label for="talleRopa"></label>
+                        <button class="botonesTalleRopa" id="talleS">S</button>
+                        <button class="botonesTalleRopa" id="talleM">M</button>
+                        <button class="botonesTalleRopa" id="talleL">L</button>
+                        <button class="botonesTalleRopa" id="talleXL">XL</button>
+                        <button class="botonesTalleRopa" id="talleXXL">XXL</button>
+                    </div>
+                    <hr>
 
                     <h2>Zapatillas</h2>
+                    <hr>
                     <label for="tallesZapatillas"></label>
-                    <input type="checkbox" id="talle39" name="opcion" value="talle39">39
-
-                    <input type="checkbox" id="talle40" name="opcion" value="talle40">40
-
-                    <input type="checkbox" id="talle41" name="opcion" value="talle41">41
-
-                    <input type="checkbox" id="talle42" name="opcion" value="talle42">42
-
-                    <input type="checkbox" id="talle43" name="opcion" value="talle43">43
-                    <input type="checkbox" id="talle44" name="opcion" value="talle44">44
-                    <input type="checkbox" id="talle45" name="opcion" value="talle45">45
+                    <ul class="cajaTalles">
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="talle39">
+                            <p>39</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="talle40">
+                            <p>40</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="talle41">
+                            <p>41</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="talle42">
+                            <p>42</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="talle43">
+                            <p>43</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="talle44">
+                            <p>44</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="talle45">
+                            <p>45</p>
+                        </li>
+                    </ul>
+                    <hr>
+                    <h2>Accesorios</h2>
 
                     <hr>
 
-                    <h2>Accesorios</h2>
                     <label for="tallesAccesorios"></label>
-                    <input type="checkbox" id="tallesm" name="opcion" value="tallesm">S/M
-                    <br>
-                    <input type="checkbox" id="talleml" name="opcion" value="talleml">M/L
-                    <br>
-                    <input type="checkbox" id="tallelxl" name="opcion" value="tallelxl">L/XL
-                    <br>
-                    <input type="checkbox" id="talleUnico" name="opcion" value="talleUnico">Unico
-
+                    <ul class="cajaAccesorios">
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="tallesm">
+                            <p>S/M</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="talleml">
+                            <p>M/L</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="tallelxl">
+                            <p>L/XL</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="talleUnico">
+                            <p>Unico</p>
+                        </li>
+                    </ul>
+                    <hr>
                 </div>
+
 
                 <h2>Precio</h2>
 
                 <div id="precioFiltro">
-                    <input id="rango" type="range" min="0" max="100">
+                    <input class="colorRojo" type="range" min="0" max="100">
                     <h2>Min - Max</h2>
                     <hr>
                 </div>
 
                 <h2>Tipo de Producto</h2>
+                <hr>
                 <div id="tipoProductoFiltro">
-                    <input type="checkbox" id="cajaMarca" name="opcion" value="ropa">Ropa
-                    <br>
-
-                    <input type="checkbox" id="cajaMarca" name="opcion" value="zapatillas">Zapatillas
-                    <br>
-
-                    <input type="checkbox" id="cajaMarca" name="opcion" value="accesorios">Accesorios
+                    <ul>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion" value="ropa">
+                            <p>Ropa</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="zapatillas">
+                            <p>Zapatillas</p>
+                        </li>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="accesorios">
+                            <p>Accesorios</p>
+                        </li>
+                    </ul>
                     <hr>
                 </div>
 
 
                 <h2>Descuento</h2>
                 <div id="descuentosFiltro">
-                    <input type="checkbox" id="cajaDescuentos" name="opcion" value="accesorios">Descuentos
+                    <ul>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="accesorios">
+                            <p>Descuentos</p>
+                        </li>
+                    </ul>
                 </div>
                 <hr>
-
                 <h2>Stock</h2>
                 <div id="stockFiltro">
-                    <input type="checkbox" id="cajaFiltro" name="opcion" value="accesorios">Disponible
+                    <ul>
+                        <li class="listasFiltro"><input type="checkbox" class="colorRojo" name="opcion"
+                                value="accesorios">
+                            <p>Disponible</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section id="gorras">
-            <div class="productos">
-                <div class="gorra">
-                    <div class="card">
-                        <img src="../assets/images/NI9A0928-R78-1.jpeg" alt="gorra" width="100">
-                        <h4>Gorra Jordan</h4>
-                        <p>Precio: $500</p>
-                        <p>Talle</p>
-                        <p>Stock</p>
-                        <button class="carrito">Agregar al carrito</button>
-                    </div>
-                </div>
+            <div class="productos" id="contenedor-productos-galeria">
             </div>
+        </section>
 
         </section>
     </main>
@@ -161,8 +198,7 @@
         <div>
             <h4>Contacto:</h4>
             <ul class="contactos">
-
-                <li><img src="assets/images/pngwing.com.png" alt="telefono" width="20"></li>
+                <li><img src="../assets/icons/telefono (1).png" alt="telefono" width="20"></li>
                 <p>+54 9 3483 43-0502</p>
             </ul>
         </div>
@@ -173,13 +209,14 @@
 
         <div>
             <h4>instagram:</h4>
-            <ul class="contactos">
-                <li><img src="assets/images/pngegg.png" alt="logoinstagram" width="30"></li>
+            <ul class="logoIg">
+                <li><img src="../assets/icons/pngegg.png" alt="logoinstagram" width="30"></li>
                 <a href="https://www.instagram.com/ases.ros/">ases.ros</a>
             </ul>
         </div>
 
     </footer>
+    <script src="../static/JS/galeria.js"></script>
 </body>
 
 </html>
