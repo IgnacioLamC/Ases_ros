@@ -19,7 +19,7 @@ localStorage.removeItem("carrito");
 if (localStorage.getItem("carrito")) {
   carrito = JSON.parse(localStorage.getItem("carrito"));
 } else {
-  localStorage.setItem("carrito", JSON.stringify([{ id: "2", cantidad: "2" }]));
+  localStorage.setItem("carrito", JSON.stringify([]));
   carrito = JSON.parse(localStorage.getItem("carrito"));
 }
 
@@ -28,7 +28,7 @@ function mostrarProductos() {
   compras.innerHTML = "";
   carrito.forEach((producto) => {
     const productoCompleto = productos.find(
-      (p) => parseInt(p.id) === parseInt(producto.id),
+      (p) => p.id === producto.id,
     );
     const li = document.createElement("li");
     li.innerHTML = `
@@ -59,7 +59,6 @@ function mostrarProductos() {
     );
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
-
     mostrarProductos();
     actualizarResumen();
 });
