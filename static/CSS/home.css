@@ -24,7 +24,6 @@ nav {
     font-weight: 400; 
     font-style: normal;
 font-size: 130%;
-
     display: flex;
     justify-content: space-between; 
     align-items: center; 
@@ -37,7 +36,16 @@ font-size: 130%;
 
 .menu {
     display: flex;
-    gap: 20px;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+
+    flex: 1;
+
+    width: 100%;
+
+    max-width: 900px;
 }
 
 .menu a {
@@ -73,6 +81,12 @@ font-size: 130%;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: auto;
+    margin-top: -3px;
+    padding: 8px 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .busqueda button:hover {
@@ -269,6 +283,7 @@ footer ul {
     }
 .menu a {
        font-size: 25px;
+       margin-left:10%;
     
     }
     .menu {
