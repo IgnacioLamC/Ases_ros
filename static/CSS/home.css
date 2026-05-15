@@ -195,12 +195,35 @@ footer ul {
      list-style: none;
 }
 
-/* SLIDER */
+@keyframes carrusel {
+
+    
+    0%, 30%{
+        transform: translateX(0%);
+    }
+
+    
+    35%, 65%{
+        transform: translateX(-100%);
+    }
+
+    
+    70%, 95%{
+        transform: translateX(-200%);
+    }
+
+    
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+
 .novedades{
     padding: 2rem;
 }
 
-/* CONTENEDOR */
+
 .carrusel-contenedor{
     position: relative;
 
@@ -216,14 +239,14 @@ footer ul {
     box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
 }
 
-/* SLIDER */
+
 .slider{
     display: flex;
 
     animation: carrusel 12s infinite;
 }
 
-/* IMAGENES */
+
 .slider img{
     width: 100%;
 
@@ -234,33 +257,6 @@ footer ul {
     object-fit: cover;
 }
 
-/* ANIMACION */
-@keyframes carrusel {
-
-    /* IMAGEN 1 */
-    0%, 30%{
-        transform: translateX(0%);
-    }
-
-    /* IMAGEN 2 */
-    35%, 65%{
-        transform: translateX(-100%);
-    }
-
-    /* IMAGEN 3 */
-    70%, 95%{
-        transform: translateX(-200%);
-    }
-
-    /* REINICIO */
-    100%{
-        transform: translateX(0%);
-    }
-}
-
-/* FIN SLIDER */
-
-/*tamaño de pantalla computadora*/
 @media screen and (min-width: 769px) {
 
     .hamburguesa {
@@ -279,7 +275,7 @@ footer ul {
     }
 }
 
-/* tablet */
+
 @media screen and (max-width: 768px) {
 
     nav {
@@ -304,7 +300,7 @@ footer ul {
         transition: 0.3s;
     }
 
-    /* menu superpuesto */
+   
     .menu {
         position: fixed;
         top: 0;
@@ -379,9 +375,6 @@ footer ul {
     }
 }
 
-
-
-/*celu*/
 
 @media screen and (max-width: 480px) {
 .novedades{
