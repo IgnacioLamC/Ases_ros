@@ -52,6 +52,12 @@ p {
     border-bottom: #c43737 2px solid;
 }
 
+.buscadorProducto input {
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 
 #logoBusqueda {
     display: flex;
