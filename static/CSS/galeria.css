@@ -145,12 +145,41 @@ button:hover {
     border-right: 2px solid #c43737;
     box-sizing: border-box;
     align-self: stretch;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin: 7px;
+}
+
+.listasFiltro {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    gap: 4px;
+}
+
+.btnsTalleRopa {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.botonesTalleRopa {
+    width: 10%;
+    height: 10%;
+    font-family: 'Bebas Neue';
+    font-size: 15px;
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
 }
 
 #gorras {
     flex-grow: 1;
     box-sizing: border-box;
-    border-top: none !important;
 }
 
 hr {
@@ -160,80 +189,7 @@ hr {
     width: 100%;
 }
 
-
-#rango {
-    accent-color: red;
-}
-
-#cajaMarca {
-    accent-color: red;
-}
-
-#descuentosFiltro {
-    accent-color: red;
-}
-
-#stockFiltro {
-    accent-color: red;
-}
-
-#cajaJordan {
-    accent-color: red;
-}
-
-#cajaSupreme {
-    accent-color: red;
-}
-
-#cajaNocta {
-    accent-color: red;
-}
-
-#cajaNike {
-    accent-color: red;
-}
-
-#talle39 {
-    accent-color: red;
-}
-
-#talle40 {
-    accent-color: red;
-}
-
-#talle41 {
-    accent-color: red;
-}
-
-#talle42 {
-    accent-color: red;
-}
-
-#talle43 {
-    accent-color: red;
-}
-
-#talle44 {
-    accent-color: red;
-}
-
-#talle45 {
-    accent-color: red;
-}
-
-#tallesm {
-    accent-color: red;
-}
-
-#talleml {
-    accent-color: red;
-}
-
-#tallelxl {
-    accent-color: red;
-}
-
-#talleUnico {
+.colorRojo {
     accent-color: red;
 }
 
@@ -252,8 +208,23 @@ footer {
     justify-content: space-evenly;
     padding-top: 10px;
     padding-bottom: 10px;
-    position: relative;
+}
 
+.logoIg {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logoIg a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.contactos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 #btn-menu {
@@ -425,5 +396,26 @@ footer {
         font-size: 12px;
         padding: 5px;
         white-space: nowrap;
+    }
+
+    footer {
+        gap: 10px;
+        text-align: center;
+        padding: 10px;
+        margin-top: 12px;
+    }
+
+    .contactos {
+        justify-content: center;
+    }
+
+    .logoIg {
+        justify-content: center;
+    }
+
+    footer a,
+    footer p {
+        font-size: 12px;
+
     }
 }
