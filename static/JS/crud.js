@@ -1,4 +1,4 @@
-// 1. Referencias a los elementos del DOM
+// Referencias a los elementos del DOM
 const menuToggle = document.getElementById('menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 const formAses = document.getElementById('form-ases');
@@ -8,21 +8,31 @@ const checkDescuento = document.getElementById('check-descuento');
 const precioOfertaInput = document.getElementById('precio-oferta');
 const listaCards = document.getElementById('lista-cards');
 
-// 2. Lógica del Menú Hamburguesa (¡No la borres! Es para el celu)
+// Lógica del Menú Hamburguesa
 if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
     });
 }
 
-// 3. Configuración de talles por categoría
+// Configuración de talles por categoría
 const opcionesTalles = {
     ropa: ['S', 'M', 'L', 'XL', 'XXL'],
     zapatillas: ['39', '40', '41', '42', '43', '44', '45'],
     accesorios: ['S/M', 'M/L', 'L/XL', 'Talle Único']
 };
 
-// 4. Cambio de talles dinámico
+// Logica creación id
+let idUsable
+if(localStorage.getItem("idUsable")){
+    idUsable = parseInt(localStorage.getItem("idUsable")) || 0
+} else{
+    localStorage.setItem("idUsable", "0")
+    idUsable = 0;
+}
+
+
+// Cambio de talles dinámico
 selectCategoria.addEventListener('change', () => {
     const categoria = selectCategoria.value;
     selectTalle.innerHTML = '<option value="">Seleccione Talle</option>';
@@ -40,13 +50,13 @@ selectCategoria.addEventListener('change', () => {
     }
 });
 
-// 5. Lógica de Descuento
+// Lógica de Descuento
 checkDescuento.addEventListener('change', () => {
     precioOfertaInput.disabled = !checkDescuento.checked;
     if (!checkDescuento.checked) precioOfertaInput.value = '';
 });
 
-// 6. Mostrar Productos Guardados
+// Mostrar Productos Guardados
 function mostrarProductos() {
     const productos = JSON.parse(localStorage.getItem('productosAses')) || [];
     listaCards.innerHTML = '';
@@ -61,7 +71,7 @@ function mostrarProductos() {
             precioHTML = `
                 <p class="precios">
                     <span class="precio-tachado">$${prod.precioOriginal}</span> 
-                    <span class="precio-oferta">$${prod.precioFinal}</span>
+                    <span class="precio-oferta">$${Number(prod.precioOriginal) * (100-Number(prod.descuento))/100}</span>
                 </p>`;
         } else {
             precioHTML = `<p class="precio-normal">$${prod.precioOriginal}</p>`;
@@ -79,7 +89,7 @@ function mostrarProductos() {
         listaCards.appendChild(li);
     });
 }
-// 7. Eliminar Producto
+// Eliminar Producto
 window.eliminarProducto = function (id) {
     let productos = JSON.parse(localStorage.getItem('productosAses')) || [];
     productos = productos.filter(p => p.id !== id);
@@ -87,22 +97,25 @@ window.eliminarProducto = function (id) {
     mostrarProductos();
 };
 
-// 8. Evento Submit (Cargar Producto)
+// Cargar Producto
 formAses.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const nuevaPrenda = {
-        id: Date.now(),
+        id: idUsable,
         categoria: selectCategoria.value,
         marca: document.getElementById('marca').value,
         talle: selectTalle.value,
         precioOriginal: document.getElementById('precio').value,
         enOferta: checkDescuento.checked,
-        precioFinal: checkDescuento.checked ? precioOfertaInput.value : document.getElementById('precio').value,
+        descuento: checkDescuento.checked ? precioOfertaInput.value : document.getElementById('precio').value,
         imagen: document.getElementById('imagen').value,
         descripcion: document.getElementById('descripcion').value,
         cantidad: document.getElementById('cantidad').value
     };
+
+    idUsable++;
+    localStorage.setItem("idUsable", idUsable);
 
     const productosGuardados = JSON.parse(localStorage.getItem('productosAses')) || [];
     productosGuardados.push(nuevaPrenda);
