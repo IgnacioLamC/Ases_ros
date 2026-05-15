@@ -21,17 +21,18 @@ body{ background: linear-gradient(rgba(255, 255, 255, 0.795), rgba(255, 255, 255
 
 nav {
     font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400; 
+    font-weight: 400;
     font-style: normal;
-font-size: 130%;
+    font-size: 130%;
     display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+    align-items: center;
     background: white;
     padding: 15px 40px;
     border-top: 2px solid #c43737;
     border-bottom: 2px solid #c43737;
+    gap: 20px;
 }
+
 
 
 .menu {
@@ -43,15 +44,20 @@ font-size: 130%;
 
     flex: 1;
 
-    width: 100%;
+    min-width: 0;
 
-    max-width: 900px;
+    gap: 15px;
 }
+
 
 .menu a {
     color: black;
+
     text-decoration: none;
+
     font-weight: 500;
+
+    white-space: nowrap;
 }
 
 .menu a:hover {
@@ -61,8 +67,12 @@ font-size: 130%;
 
 .busqueda {
     display: flex;
-    gap: 10px;
+
     align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
 }
 
 .busqueda input {
@@ -283,7 +293,6 @@ footer ul {
     }
 .menu a {
        font-size: 25px;
-       margin-left:10%;
     
     }
     .menu {
