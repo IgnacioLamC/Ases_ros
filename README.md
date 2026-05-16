@@ -23,3 +23,40 @@ Instruccuiones para ejecutarlo
 1) Clonar el repositorio mediante este link:
 2) Abrir la carpeta de Ases_ros.
 3) Ejecutar el archivo index.html en el navegador.
+
+Capturas de pantalla
+
+Galería
+Sistema de galería de productos con filtros y barra de búsqueda para facilitar la navegación y encontrar productos rápidamente.
+
+![Pagina 1](screenshot/pagina1.png)
+
+
+
+Ayuda
+Sección de ayuda con apartados desplegables (collapse/acordeón) donde se muestra información sobre envíos, devoluciones, contacto y métodos de pago.
+
+![Pagina 2](screenshot/pagina2.png)
+
+
+
+Carrito
+Carrito de compras con visualización de productos seleccionados y finalización de compra.
+
+![Pagina 3](screenshot/pagina3.png)
+
+
+
+CRUD - Gestión de Stock
+Sistema CRUD para la administración de productos, permitiendo agregar, editar y eliminar elementos del inventario.
+
+![Pagina 4](screenshot/pagina4.png)
+
+![Pagina 5](screenshot/pagina5.png)
+
+
+
+Home
+Página principal con sección de productos destacados y presentación general de la tienda.
+
+![Pagina 6](screenshot/pagina6.png)
