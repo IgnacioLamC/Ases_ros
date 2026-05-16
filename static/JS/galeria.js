@@ -9,6 +9,49 @@ const btnBuscar = document.querySelector('.btnBuscar');
 
 let talleSeleccionado = null;
 
+// Inicialización de la base de datos si no existe
+if (!localStorage.getItem('productosAses')) {
+    const productosIniciales = [
+        {
+            id: 1, categoria: 'zapatillas', marca: 'Nike Air Jordan 1', talle: '42',
+            precioOriginal: 150000, enOferta: true, descuentoPorcentaje: 20, precioFinal: 120000,
+            esDestacado: true, imagen: 'https://images.unsplash.com/photo-1584735175315-9d5df23860e6?q=80&w=300&auto=format&fit=crop',
+            descripcion: 'Zapatillas Jordan icónicas.', cantidad: 10
+        },
+        {
+            id: 2, categoria: 'zapatillas', marca: 'Adidas Forum Low', talle: '40',
+            precioOriginal: 95000, enOferta: false, descuentoPorcentaje: 0, precioFinal: 95000,
+            esDestacado: false, imagen: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=300&auto=format&fit=crop',
+            descripcion: 'Estilo retro clásico.', cantidad: 5
+        },
+        {
+            id: 3, categoria: 'ropa', marca: 'Remera Supreme Box Logo', talle: 'L',
+            precioOriginal: 45000, enOferta: false, descuentoPorcentaje: 0, precioFinal: 45000,
+            esDestacado: true, imagen: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=300&auto=format&fit=crop',
+            descripcion: 'Remera de algodón premium.', cantidad: 8
+        },
+        {
+            id: 4, categoria: 'ropa', marca: 'Pantalón Cargo Nocta', talle: 'M',
+            precioOriginal: 85000, enOferta: true, descuentoPorcentaje: 15, precioFinal: 72250,
+            esDestacado: false, imagen: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=300&auto=format&fit=crop',
+            descripcion: 'Pantalón técnico Nocta.', cantidad: 4
+        },
+        {
+            id: 5, categoria: 'accesorios', marca: 'Gorra Jordan Pro', talle: 'Talle Único',
+            precioOriginal: 25000, enOferta: false, descuentoPorcentaje: 0, precioFinal: 25000,
+            esDestacado: false, imagen: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=300&auto=format&fit=crop',
+            descripcion: 'Gorra ajustable.', cantidad: 15
+        },
+        {
+            id: 6, categoria: 'accesorios', marca: 'Medias Nike Cushion', talle: 'M/L',
+            precioOriginal: 12000, enOferta: true, descuentoPorcentaje: 10, precioFinal: 10800,
+            esDestacado: true, imagen: 'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?q=80&w=300&auto=format&fit=crop',
+            descripcion: 'Pack de medias deportivas.', cantidad: 20
+        }
+    ];
+    localStorage.setItem('productosAses', JSON.stringify(productosIniciales));
+}
+
 // Lista de Productos
 const productos = JSON.parse(localStorage.getItem("productosAses")) || [];
 // Carrito
