@@ -46,7 +46,13 @@ window.prepararEdicion = function(id) {
         document.getElementById('check-descuento').checked = prod.enOferta;
         document.getElementById('check-destacado').checked = prod.esDestacado;
         
-        precioOfertaInput.value = prod.enOferta ? prod.precioFinal : '';
+        if (prod.enOferta) {
+            // Si tenemos el porcentaje guardado lo usamos, si no lo calculamos (para productos viejos)
+            const porcentaje = prod.descuentoPorcentaje || Math.round((1 - (prod.precioFinal / prod.precioOriginal)) * 100);
+            precioOfertaInput.value = porcentaje;
+        } else {
+            precioOfertaInput.value = '';
+        }
         precioOfertaInput.disabled = !prod.enOferta;
 
         // Cargar talles
@@ -71,7 +77,7 @@ function mostrarProductos() {
         const claseStock = p.cantidad == 0 ? 'stock-alerta' : '';
 
         const precioHTML = p.enOferta 
-            ? `<p class="precios"><span class="precio-tachado">$${p.precioOriginal}</span> <span class="precio-oferta">$${p.precioFinal}</span></p>`
+            ? `<p class="precios"><span class="precio-tachado">$${p.precioOriginal}</span> <span class="precio-oferta">$${p.precioFinal}</span> <small>(${p.descuentoPorcentaje} % OFF)</small></p>`
             : `<p class="precio-normal">$${p.precioOriginal}</p>`;
 
         li.innerHTML = `
@@ -103,7 +109,7 @@ formAses.addEventListener('submit', (e) => {
 
     // Validaciones
     const precioBase = parseFloat(document.getElementById('precio').value);
-    const precioOferta = parseFloat(precioOfertaInput.value);
+    const porcentajeDescuento = parseFloat(precioOfertaInput.value);
     const stockInicial = parseInt(document.getElementById('cantidad').value);
 
     if (precioBase <= 0) {
@@ -117,12 +123,8 @@ formAses.addEventListener('submit', (e) => {
     }
 
     if (checkDescuento.checked) {
-        if (isNaN(precioOferta) || precioOferta <= 0) {
-            alert("Si aplicás descuento, el precio de oferta debe ser mayor a 0.");
-            return;
-        }
-        if (precioOferta >= precioBase) {
-            alert("El precio de oferta debe ser menor al precio original.");
+        if (isNaN(porcentajeDescuento) || porcentajeDescuento <= 0 || porcentajeDescuento >= 100) {
+            alert("El porcentaje de descuento debe estar entre 1 y 99.");
             return;
         }
     }
@@ -136,7 +138,8 @@ formAses.addEventListener('submit', (e) => {
         talle: selectTalle.value,
         precioOriginal: precioBase,
         enOferta: checkDescuento.checked,
-        precioFinal: checkDescuento.checked ? precioOferta : precioBase,
+        descuentoPorcentaje: checkDescuento.checked ? porcentajeDescuento : 0,
+        precioFinal: checkDescuento.checked ? Math.round(precioBase * (1 - (porcentajeDescuento / 100))) : precioBase,
         esDestacado: document.getElementById('check-destacado').checked,
         imagen: document.getElementById('imagen').value,
         descripcion: document.getElementById('descripcion').value,

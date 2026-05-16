@@ -34,7 +34,7 @@ function mostrarProductos() {
                         <h5>${productoCompleto.descripcion}</h5>
                         <p>Talle: ${productoCompleto.talle}</p>
                         <p>Cantidad: ${producto.cantidad}</p>
-                        <p>Por prenda: $${precioVenta}</p>
+                        <p>Por prenda: $${precioVenta} ${productoCompleto.enOferta ? `<small>(${productoCompleto.descuentoPorcentaje}% OFF)</small>` : ''}</p>
                         <p>Total: $${Number(precioVenta) * Number(producto.cantidad)}</p>
                     </div>
                     <div>
