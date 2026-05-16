@@ -179,6 +179,12 @@ h2 {
     cursor: pointer;
 }
 
+.botonesTalleRopa.selected {
+    background-color: #c43737;
+    color: white;
+    border-color: #c43737;
+}
+
 #gorras {
     flex-grow: 1;
     box-sizing: border-box;

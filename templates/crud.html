@@ -24,6 +24,8 @@
         <h2>Cargar Nuevo Producto</h2>
 
         <form id="form-ases">
+            <input type="hidden" id="edit-id">
+
             <select id="categoria" required>
                 <option value="">Seleccione Categoría</option>
                 <option value="ropa">Ropa</option>
@@ -43,25 +45,29 @@
                 <option value="">Primero elija categoría</option>
             </select>
 
-            <input type="number" id="precio" placeholder="Precio Base ($)" required>
+            <input type="number" id="precio" placeholder="Precio Base ($)" required min="1">
 
             <div class="contenedor-descuento">
                 <label class="switch-label" for="check-descuento">
                     <input type="checkbox" id="check-descuento">
                     <span>¿APLICAR DESCUENTO?</span>
                 </label>
-                <input type="number" id="precio-oferta" placeholder="Precio Final Oferta ($)" disabled>
+                <input type="number" id="precio-oferta" placeholder="Porcentaje Descuento (%)" disabled min="1" max="99">
+            </div>
+
+            <div class="contenedor-destacado">
+                <label class="switch-label-destacado" for="check-destacado">
+                    <input type="checkbox" id="check-destacado">
+                    <span>MARCAR COMO DESTACADO ⭐</span>
+                </label>
             </div>
 
             <input type="url" id="imagen" placeholder="URL de la imagen" required>
-
             <textarea id="descripcion" placeholder="Descripción detallada..." required></textarea>
-
-            <input type="number" id="cantidad" placeholder="Cantidad en Stock" required>
+            <input type="number" id="cantidad" placeholder="Cantidad en Stock" required min="0">
 
             <button type="submit" id="btn-cargar">CARGAR PRODUCTO</button>
         </form>
-
         <div id="mensaje-exito"></div>
 
         <section id="vista-previa">

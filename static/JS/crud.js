@@ -1,6 +1,3 @@
-// 1. Referencias a los elementos del DOM
-const menuToggle = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
 const formAses = document.getElementById('form-ases');
 const selectCategoria = document.getElementById('categoria');
 const selectTalle = document.getElementById('talle');
@@ -8,111 +5,183 @@ const checkDescuento = document.getElementById('check-descuento');
 const precioOfertaInput = document.getElementById('precio-oferta');
 const listaCards = document.getElementById('lista-cards');
 
-// 2. Lógica del Menú Hamburguesa (¡No la borres! Es para el celu)
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-}
-
-// 3. Configuración de talles por categoría
 const opcionesTalles = {
     ropa: ['S', 'M', 'L', 'XL', 'XXL'],
     zapatillas: ['39', '40', '41', '42', '43', '44', '45'],
     accesorios: ['S/M', 'M/L', 'L/XL', 'Talle Único']
 };
 
-// 4. Cambio de talles dinámico
-selectCategoria.addEventListener('change', () => {
-    const categoria = selectCategoria.value;
-    selectTalle.innerHTML = '<option value="">Seleccione Talle</option>';
+// Stock
+window.modificarStock = function(id, cambio) {
+    let productos = JSON.parse(localStorage.getItem('productosAses')) || [];
+    const index = productos.findIndex(p => p.id === id);
 
-    if (categoria && opcionesTalles[categoria]) {
-        selectTalle.disabled = false;
-        opcionesTalles[categoria].forEach(t => {
-            const option = document.createElement('option');
-            option.value = t;
-            option.textContent = t;
-            selectTalle.appendChild(option);
-        });
-    } else {
-        selectTalle.disabled = true;
+    if (index !== -1) {
+        let nuevaCant = parseInt(productos[index].cantidad) + cambio;
+
+        // Validacion
+        if (nuevaCant < 0) {
+            alert("No podés tener stock negativo.");
+            return; 
+        }
+
+        productos[index].cantidad = nuevaCant;
+        localStorage.setItem('productosAses', JSON.stringify(productos));
+        mostrarProductos();
     }
-});
+};
 
-// 5. Lógica de Descuento
-checkDescuento.addEventListener('change', () => {
-    precioOfertaInput.disabled = !checkDescuento.checked;
-    if (!checkDescuento.checked) precioOfertaInput.value = '';
-});
+// Edicion
+window.prepararEdicion = function(id) {
+    const productos = JSON.parse(localStorage.getItem('productosAses')) || [];
+    const prod = productos.find(p => p.id === id);
+    if (prod) {
+        document.getElementById('edit-id').value = prod.id;
+        document.getElementById('categoria').value = prod.categoria;
+        document.getElementById('marca').value = prod.marca;
+        document.getElementById('precio').value = prod.precioOriginal;
+        document.getElementById('imagen').value = prod.imagen;
+        document.getElementById('descripcion').value = prod.descripcion;
+        document.getElementById('cantidad').value = prod.cantidad;
+        document.getElementById('check-descuento').checked = prod.enOferta;
+        document.getElementById('check-destacado').checked = prod.esDestacado;
+        
+        if (prod.enOferta) {
+            // Si tenemos el porcentaje guardado lo usamos, si no lo calculamos (para productos viejos)
+            const porcentaje = prod.descuentoPorcentaje || Math.round((1 - (prod.precioFinal / prod.precioOriginal)) * 100);
+            precioOfertaInput.value = porcentaje;
+        } else {
+            precioOfertaInput.value = '';
+        }
+        precioOfertaInput.disabled = !prod.enOferta;
 
-// 6. Mostrar Productos Guardados
+        // Cargar talles
+        selectTalle.disabled = false;
+        selectTalle.innerHTML = opcionesTalles[prod.categoria].map(t => `<option value="${t}">${t}</option>`).join('');
+        selectTalle.value = prod.talle;
+
+        document.getElementById('btn-cargar').textContent = "ACTUALIZAR PRODUCTO";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+};
+
+// Mostrar productos
 function mostrarProductos() {
     const productos = JSON.parse(localStorage.getItem('productosAses')) || [];
     listaCards.innerHTML = '';
 
-    productos.forEach((prod) => {
+    productos.forEach(p => {
         const li = document.createElement('li');
-        li.className = "card";
+        li.className = 'card';
 
-        // Lógica para el precio
-        let precioHTML = '';
-        if (prod.enOferta) {
-            precioHTML = `
-                <p class="precios">
-                    <span class="precio-tachado">$${prod.precioOriginal}</span> 
-                    <span class="precio-oferta">$${prod.precioFinal}</span>
-                </p>`;
-        } else {
-            precioHTML = `<p class="precio-normal">$${prod.precioOriginal}</p>`;
-        }
+        const claseStock = p.cantidad == 0 ? 'stock-alerta' : '';
+
+        const precioHTML = p.enOferta 
+            ? `<p class="precios"><span class="precio-tachado">$${p.precioOriginal}</span> <span class="precio-oferta">$${p.precioFinal}</span> <small>(${p.descuentoPorcentaje} % OFF)</small></p>`
+            : `<p class="precio-normal">$${p.precioOriginal}</p>`;
 
         li.innerHTML = `
-            <img src="${prod.imagen}" alt="${prod.marca}">
-            <h4>${prod.marca}</h4>
-            <p><strong>Stock:</strong> ${prod.cantidad}</p>
-            <p class="desc-card">${prod.descripcion}</p>
+            <img src="${p.imagen}" alt="${p.marca}">
+            <h4>${p.marca} ${p.esDestacado ? '<span class="estrella-destacado">⭐</span>' : ''}</h4>
+            
+            <div class="stock-control">
+                <button onclick="modificarStock(${p.id}, -1)">-</button>
+                <span class="${claseStock}">STOCK: ${p.cantidad}</span> <button onclick="modificarStock(${p.id}, 1)">+</button>
+            </div>
+
+            <p class="desc-card">${p.descripcion}</p>
+            <p class="talle-info">Talle: ${p.talle}</p>
+            
             ${precioHTML}
-            <p>Talle: ${prod.talle}</p>
-            <button onclick="eliminarProducto(${prod.id})" class="btn-eliminar">ELIMINAR</button>
+
+            <div class="card-actions">
+                <button onclick="prepararEdicion(${p.id})" class="btn-edit">EDITAR</button>
+                <button onclick="eliminarProducto(${p.id})" class="btn-del">BORRAR</button>
+            </div>
         `;
         listaCards.appendChild(li);
     });
 }
-// 7. Eliminar Producto
-window.eliminarProducto = function (id) {
+
+// Para crear o editar
+formAses.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Validaciones
+    const precioBase = parseFloat(document.getElementById('precio').value);
+    const porcentajeDescuento = parseFloat(precioOfertaInput.value);
+    const stockInicial = parseInt(document.getElementById('cantidad').value);
+
+    if (precioBase <= 0) {
+        alert("El precio debe ser mayor a 0.");
+        return;
+    }
+
+    if (stockInicial < 0) {
+        alert("El stock no puede ser negativo.");
+        return;
+    }
+
+    if (checkDescuento.checked) {
+        if (isNaN(porcentajeDescuento) || porcentajeDescuento <= 0 || porcentajeDescuento >= 100) {
+            alert("El porcentaje de descuento debe estar entre 1 y 99.");
+            return;
+        }
+    }
+
+    const idEdit = document.getElementById('edit-id').value;
     let productos = JSON.parse(localStorage.getItem('productosAses')) || [];
-    productos = productos.filter(p => p.id !== id);
+
+    const pData = {
+        categoria: selectCategoria.value,
+        marca: document.getElementById('marca').value,
+        talle: selectTalle.value,
+        precioOriginal: precioBase,
+        enOferta: checkDescuento.checked,
+        descuentoPorcentaje: checkDescuento.checked ? porcentajeDescuento : 0,
+        precioFinal: checkDescuento.checked ? Math.round(precioBase * (1 - (porcentajeDescuento / 100))) : precioBase,
+        esDestacado: document.getElementById('check-destacado').checked,
+        imagen: document.getElementById('imagen').value,
+        descripcion: document.getElementById('descripcion').value,
+        cantidad: stockInicial
+    };
+
+    if (idEdit) {
+        const idx = productos.findIndex(p => p.id == idEdit);
+        productos[idx] = { ...pData, id: parseInt(idEdit) };
+        document.getElementById('edit-id').value = "";
+        document.getElementById('btn-cargar').textContent = "CARGAR PRODUCTO";
+    } else {
+        productos.push({ ...pData, id: Date.now() });
+    }
+
+    localStorage.setItem('productosAses', JSON.stringify(productos));
+    formAses.reset();
+    
+    const msg = document.getElementById('mensaje-exito');
+    if (msg) {
+        msg.textContent = "Producto guardado correctamente";
+        setTimeout(() => msg.textContent = "", 3000);
+    }
+
+    mostrarProductos();
+});
+
+// Inicializar
+selectCategoria.addEventListener('change', () => {
+    const cat = selectCategoria.value;
+    selectTalle.disabled = !cat;
+    if(cat) selectTalle.innerHTML = opcionesTalles[cat].map(t => `<option value="${t}">${t}</option>`).join('');
+});
+
+checkDescuento.addEventListener('change', () => {
+    precioOfertaInput.disabled = !checkDescuento.checked;
+});
+
+window.eliminarProducto = (id) => {
+    let productos = JSON.parse(localStorage.getItem('productosAses')).filter(p => p.id !== id);
     localStorage.setItem('productosAses', JSON.stringify(productos));
     mostrarProductos();
 };
 
-// 8. Evento Submit (Cargar Producto)
-formAses.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const nuevaPrenda = {
-        id: Date.now(),
-        categoria: selectCategoria.value,
-        marca: document.getElementById('marca').value,
-        talle: selectTalle.value,
-        precioOriginal: document.getElementById('precio').value,
-        enOferta: checkDescuento.checked,
-        precioFinal: checkDescuento.checked ? precioOfertaInput.value : document.getElementById('precio').value,
-        imagen: document.getElementById('imagen').value,
-        descripcion: document.getElementById('descripcion').value,
-        cantidad: document.getElementById('cantidad').value
-    };
-
-    const productosGuardados = JSON.parse(localStorage.getItem('productosAses')) || [];
-    productosGuardados.push(nuevaPrenda);
-    localStorage.setItem('productosAses', JSON.stringify(productosGuardados));
-
-    formAses.reset();
-    selectTalle.disabled = true;
-    precioOfertaInput.disabled = true;
-    mostrarProductos();
-});
-
-// Ejecutar al cargar la página
 mostrarProductos();
