@@ -41,7 +41,7 @@ function mostrarGaleria(lista) {
                     <img src="${p.imagen}" alt="${p.marca}" width="100">
                     <h4>${p.marca}</h4>
                     <p>Talle: ${p.talle}</p>
-                    <p class="precio">Precio: $${p.enOferta ? p.precioFinal : p.precioOriginal}</p>
+                    <p class="precio">Precio: $${p.enOferta ? `${p.precioFinal} <small>(${p.descuentoPorcentaje}% OFF)</small>` : p.precioOriginal}</p>
                     <button class="carrito">Agregar al carrito</button>
                 </div>
             `;
