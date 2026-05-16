@@ -11,8 +11,7 @@ const opcionesTalles = {
     accesorios: ['S/M', 'M/L', 'L/XL', 'Talle Único']
 };
 
-// --- LÓGICA DE STOCK RÁPIDO ---
-
+// Stock
 window.modificarStock = function(id, cambio) {
     let productos = JSON.parse(localStorage.getItem('productosAses')) || [];
     const index = productos.findIndex(p => p.id === id);
@@ -20,10 +19,10 @@ window.modificarStock = function(id, cambio) {
     if (index !== -1) {
         let nuevaCant = parseInt(productos[index].cantidad) + cambio;
 
-        // VALIDACIÓN: No permite menos de 0
+        // Validacion
         if (nuevaCant < 0) {
-            alert("⚠️ No podés tener stock negativo.");
-            return; // Corta la función acá, no guarda nada
+            alert("No podés tener stock negativo.");
+            return; 
         }
 
         productos[index].cantidad = nuevaCant;
@@ -32,7 +31,7 @@ window.modificarStock = function(id, cambio) {
     }
 };
 
-// --- PREPARAR EDICIÓN ---
+// Edicion
 window.prepararEdicion = function(id) {
     const productos = JSON.parse(localStorage.getItem('productosAses')) || [];
     const prod = productos.find(p => p.id === id);
@@ -60,7 +59,7 @@ window.prepararEdicion = function(id) {
     }
 };
 
-// --- MOSTRAR PRODUCTOS ---
+// Mostrar productos
 function mostrarProductos() {
     const productos = JSON.parse(localStorage.getItem('productosAses')) || [];
     listaCards.innerHTML = '';
@@ -69,10 +68,8 @@ function mostrarProductos() {
         const li = document.createElement('li');
         li.className = 'card';
 
-        // 1. Validamos si el stock es cero para aplicar la clase de alerta (el titileo rojo)
         const claseStock = p.cantidad == 0 ? 'stock-alerta' : '';
 
-        // 2. Lógica para mostrar los precios: si está en oferta, mostramos el original tachado
         const precioHTML = p.enOferta 
             ? `<p class="precios"><span class="precio-tachado">$${p.precioOriginal}</span> <span class="precio-oferta">$${p.precioFinal}</span></p>`
             : `<p class="precio-normal">$${p.precioOriginal}</p>`;
@@ -92,49 +89,44 @@ function mostrarProductos() {
             ${precioHTML}
 
             <div class="card-actions">
-                <button onclick="prepararEdicion(${p.id})" class="btn-edit">✎ EDITAR</button>
-                <button onclick="eliminarProducto(${p.id})" class="btn-del">🗑️ BORRAR</button>
+                <button onclick="prepararEdicion(${p.id})" class="btn-edit">EDITAR</button>
+                <button onclick="eliminarProducto(${p.id})" class="btn-del">BORRAR</button>
             </div>
         `;
         listaCards.appendChild(li);
     });
 }
 
-// --- SUBMIT (CREAR O EDITAR) ---
+// Para crear o editar
 formAses.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // --- ACÁ EMPIEZAN LAS VALIDACIONES PRO ---
+    // Validaciones
     const precioBase = parseFloat(document.getElementById('precio').value);
     const precioOferta = parseFloat(precioOfertaInput.value);
     const stockInicial = parseInt(document.getElementById('cantidad').value);
 
-    // 1. Validar precio mayor a 0
     if (precioBase <= 0) {
-        alert("❌ El precio debe ser mayor a 0.");
+        alert("El precio debe ser mayor a 0.");
         return;
     }
 
-    // 2. Validar stock (no negativo)
     if (stockInicial < 0) {
-        alert("❌ El stock no puede ser negativo.");
+        alert("El stock no puede ser negativo.");
         return;
     }
 
-    // 3. Validar lógica de oferta (solo si el check está marcado)
     if (checkDescuento.checked) {
         if (isNaN(precioOferta) || precioOferta <= 0) {
-            alert("❌ Si aplicás descuento, el precio de oferta debe ser mayor a 0.");
+            alert("Si aplicás descuento, el precio de oferta debe ser mayor a 0.");
             return;
         }
         if (precioOferta >= precioBase) {
-            alert("❌ ¡Ojo! El precio de oferta debe ser menor al precio original.");
+            alert("El precio de oferta debe ser menor al precio original.");
             return;
         }
     }
-    // --- ACÁ TERMINAN LAS VALIDACIONES ---
 
-    // Si llegó hasta acá, es porque los datos están bien, entonces guardamos:
     const idEdit = document.getElementById('edit-id').value;
     let productos = JSON.parse(localStorage.getItem('productosAses')) || [];
 
@@ -163,10 +155,9 @@ formAses.addEventListener('submit', (e) => {
     localStorage.setItem('productosAses', JSON.stringify(productos));
     formAses.reset();
     
-    // Feedback visual de que se guardó bien
     const msg = document.getElementById('mensaje-exito');
     if (msg) {
-        msg.textContent = "✅ Producto guardado correctamente";
+        msg.textContent = "Producto guardado correctamente";
         setTimeout(() => msg.textContent = "", 3000);
     }
 

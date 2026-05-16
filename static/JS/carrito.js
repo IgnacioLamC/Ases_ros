@@ -6,21 +6,14 @@ const resumen = document.getElementById("resumen");
 let cuponActivo = false;
 
 // Lista de productos y del carrito actual
-let productos;
-let carrito;
-
-if (localStorage.getItem("productosAses")) {
-  productos = JSON.parse(localStorage.getItem("productosAses"));
-} else {
-  productos = [];
+let productos = JSON.parse(localStorage.getItem("productosAses")) || [];
+if (productos.length === 0) {
   alert("No hay productos cargados");
 }
-localStorage.removeItem("carrito");
-if (localStorage.getItem("carrito")) {
-  carrito = JSON.parse(localStorage.getItem("carrito"));
-} else {
-  localStorage.setItem("carrito", JSON.stringify([{ id: "2", cantidad: "2" }]));
-  carrito = JSON.parse(localStorage.getItem("carrito"));
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+if (!localStorage.getItem("carrito")) {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 // Mostrar productos en el carrito
@@ -28,8 +21,11 @@ function mostrarProductos() {
   compras.innerHTML = "";
   carrito.forEach((producto) => {
     const productoCompleto = productos.find(
-      (p) => parseInt(p.id) === parseInt(producto.id),
+      (p) => p.id === producto.id,
     );
+    if (!productoCompleto) return;
+
+    const precioVenta = productoCompleto.enOferta ? productoCompleto.precioFinal : productoCompleto.precioOriginal;
     const li = document.createElement("li");
     li.innerHTML = `
                 <div class="item-carrito">
@@ -38,32 +34,28 @@ function mostrarProductos() {
                         <h5>${productoCompleto.descripcion}</h5>
                         <p>Talle: ${productoCompleto.talle}</p>
                         <p>Cantidad: ${producto.cantidad}</p>
-                        <p>Por prenda: $${productoCompleto.precioOriginal}</p>
-                        <p>Total: $${Number(productoCompleto.precioOriginal) * Number(producto.cantidad)}</p>
+                        <p>Por prenda: $${precioVenta}</p>
+                        <p>Total: $${Number(precioVenta) * Number(producto.cantidad)}</p>
                     </div>
                     <div>
                         <button class="btn-borrar" data-id="${producto.id}">Borrar</button>
                     </div>     
                 </div>
             `;
-    console.log("va");
     compras.appendChild(li);
 
     // Borrar producto del carrito
     const btnBorrar = li.querySelector(".btn-borrar");
 
     btnBorrar.addEventListener("click", () => {
-
-    carrito = carrito.filter(
+      carrito = carrito.filter(
         (p) => parseInt(p.id) !== parseInt(producto.id)
-    );
+      );
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-
-    mostrarProductos();
-    actualizarResumen();
-});
-
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarProductos();
+      actualizarResumen();
+    });
   });
 }
 
@@ -78,8 +70,8 @@ function actualizarResumen() {
 
     if (!productoCompleto) return;
 
-    subtotal +=
-      Number(productoCompleto.precioOriginal) * Number(producto.cantidad);
+    const precioVenta = productoCompleto.enOferta ? productoCompleto.precioFinal : productoCompleto.precioOriginal;
+    subtotal += Number(precioVenta) * Number(producto.cantidad);
   });
 
   const envio = 5000;
@@ -148,9 +140,7 @@ function actualizarResumen() {
         (p) => parseInt(p.id) === parseInt(productoCarrito.id),
       );
 
-      if (!producto) {
-        alert("No hay productos en la tienda");
-      }
+      if (!producto) return;
 
       producto.cantidad =
         Number(producto.cantidad) - Number(productoCarrito.cantidad);
