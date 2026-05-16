@@ -3,20 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 #menu-toggle {
     display: none;
 }
 
-body{ background: linear-gradient(rgba(255, 255, 255, 0.795), rgba(255, 255, 255, 0.836)), url("fondocartas.jpg");
- 
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed; 
+body {
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url("fondocartas.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    line-height: 1.6;
 }
 
-.logo{
-   display: flex;
-   justify-content: center;
+.logo {
+    display: flex;
+    justify-content: center;
 }
 
 nav {
@@ -83,7 +86,7 @@ nav {
 
 .busqueda button {
     font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400; 
+    font-weight: 400;
     font-style: normal;
     padding: 8px 13px;
     background: #c43737;
@@ -103,98 +106,166 @@ nav {
     background: red;
 }
 
-header h1{ 
+header h1 {
     color: red;
-} 
+}
 
- h2{
+h2 {
     text-align: center;
     font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400; 
+    font-weight: 400;
     font-style: normal;
- }
+    font-size: 2.5rem;
+    color: #c43737;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
- hr{
+hr {
     background-color: #c43737;
-   max-width: auto;
-margin-top: 10px;
-margin-bottom: 20px;
+    max-width: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
     height: 30px;
- }
+}
 
-button { 
-margin-top: 10px; 
-width: 100%; 
-padding: 10px; 
-background-color: #c43737; 
-border: none; 
-color: white; 
-cursor:pointer; 
-border-radius: 5px; 
-} 
-button:hover { 
-background:red } 
+button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #c43737;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-.content { flex: 1; 
-padding: 20px;} 
+button:hover {
+    background: red
+}
 
-.productos { 
-display: grid; 
-grid-template-columns: repeat(4, 1fr); 
-gap: 20px; 
-} 
+.content {
+    flex: 1;
+    padding: 20px;
+}
 
-.card { 
+.productos, #lista-destacados, #lista-oferta, #lista-general {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    list-style: none;
+    padding: 20px 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    #lista-destacados, #lista-oferta, #lista-general {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 20px 15px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    #lista-destacados::-webkit-scrollbar, 
+    #lista-oferta::-webkit-scrollbar, 
+    #lista-general::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+}
+
+#lista-general li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
     font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400; 
-    font-style: normal;
-background: whitesmoke; 
-border: 1px solid red; 
-border-radius: 10px; 
-padding: 15px; 
-position: relative; 
-transition: 0.3s; 
-} 
+    font-weight: 400;
+    width: 180px;
+    min-height: 280px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
 
-.card-of { 
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-color: #c43737;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Unifying card styles */
+.card, .card-of {
     font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400; 
-    font-style: normal;
-background: whitesmoke; 
-border: 1px solid red; 
-border-radius: 10px; 
-padding: 15px; 
-position: relative; 
-transition: 0.3s; 
-} 
+    font-weight: 400;
+    width: 180px;
+    min-height: 280px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
 
 .oferta-logo {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 25px;
-     z-index: 10;
+    top: -10px;
+    right: -10px;
+    width: 35px;
+    z-index: 10;
+    background: #ffde00;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.card:hover { 
-transform: scale(1.03);
-} 
-
-.enlacesNav a { 
-color:black; 
+.card:hover {
+    transform: scale(1.03);
 }
 
-#productos ul{
-display: flex;
-gap: 30px;
-list-style:none;
-justify-content: center
+.enlacesNav a {
+    color: black;
+}
 
+#productos-destacados ul, #productos-oferta ul, #productos-lista ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
 }
 
 footer {
     font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400; 
+    font-weight: 400;
     font-style: normal;
     display: flex;
     bottom: 0;
@@ -203,53 +274,59 @@ footer {
     background-color: rgb(0, 0, 0);
     color: whitesmoke;
     flex: content;
-justify-content: space-evenly;
-padding-top: 10px;
-padding-bottom:10px;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-a{
+
+a {
     text-decoration: none;
-   color:white
+    color: white
 }
+
 .contactos {
     display: flex;
-    align-items: center; 
-    gap: 10px;           
+    align-items: center;
+    gap: 10px;
 }
+
 footer ul {
-     list-style: none;
+    list-style: none;
 }
 
 @keyframes carrusel {
 
-    
-    0%, 30%{
+
+    0%,
+    30% {
         transform: translateX(0%);
     }
 
-    
-    35%, 65%{
+
+    35%,
+    65% {
         transform: translateX(-100%);
     }
 
-    
-    70%, 95%{
+
+    70%,
+    95% {
         transform: translateX(-200%);
     }
 
-    
-    100%{
+
+    100% {
         transform: translateX(0%);
     }
 }
 
 
-.novedades{
+.novedades {
     padding: 2rem;
 }
 
 
-.carrusel-contenedor{
+.carrusel-contenedor {
     position: relative;
 
     width: 100%;
@@ -261,18 +338,18 @@ footer ul {
 
     border-radius: 12px;
 
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 
-.slider{
+.slider {
     display: flex;
 
     animation: carrusel 12s infinite;
 }
 
 
-.slider img{
+.slider img {
     width: 100%;
 
     flex: 0 0 100%;
@@ -287,10 +364,12 @@ footer ul {
     .hamburguesa {
         display: none;
     }
-.menu a {
-       font-size: 25px;
-    
+
+    .menu a {
+        font-size: 25px;
+
     }
+
     .menu {
         display: flex !important;
         flex-direction: row;
@@ -300,7 +379,7 @@ footer ul {
         height: auto;
         padding: 0;
         box-shadow: none;
-       
+
 
     }
 }
@@ -313,7 +392,7 @@ footer ul {
         padding: 15px;
     }
 
-   
+
     .hamburguesa {
         display: flex;
         flex-direction: column;
@@ -330,7 +409,7 @@ footer ul {
         transition: 0.3s;
     }
 
-   
+
     .menu {
         position: fixed;
         top: 0;
@@ -352,11 +431,11 @@ footer ul {
 
         z-index: 1000;
 
-        box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
     }
 
-    
-    #menu-toggle:checked + .hamburguesa + .menu {
+
+    #menu-toggle:checked+.hamburguesa+.menu {
         left: 0;
     }
 
@@ -373,7 +452,7 @@ footer ul {
         color: red;
     }
 
- 
+
     .busqueda {
         width: 100%;
         display: flex;
@@ -396,87 +475,85 @@ footer ul {
     .busqueda img {
         width: 25px;
     }
-    .carrusel-contenedor{
+
+    .carrusel-contenedor {
         max-width: 95%;
     }
 
-    .slider img{
+    .slider img {
         height: 300px;
     }
 }
 
 
 @media screen and (max-width: 480px) {
-#productos{
-    padding: 0 10px;
-}
+    #lista-destacados, #lista-oferta, #lista-general {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0;
+        justify-content: center;
+    }
 
-#productos ul{
-    gap: 10px;
+    .card,
+    .card-of {
+        width: 100%;
 
-    padding: 0;
+        max-width: 110px;
 
-    justify-content: center;
-}
-.card,
-.card-of{
-    width: 100%;
+        min-height: 250px;
 
-    max-width: 110px;
+        padding: 10px;
 
-    min-height: 250px;
+        margin: 0 auto;
 
-    padding: 10px;
+        display: flex;
 
-    margin: 0 auto;
+        flex-direction: column;
 
-    display: flex;
+        justify-content: space-between;
 
-    flex-direction: column;
+        align-items: center;
 
-    justify-content: space-between;
+        text-align: center;
+    }
 
-    align-items: center;
+    .card h4,
+    .card-of h4 {
+        min-height: 40px;
 
-    text-align: center;
-}
+        display: flex;
 
-.card h4,
-.card-of h4{
-    min-height: 40px;
+        align-items: center;
 
-    display: flex;
+        justify-content: center;
 
-    align-items: center;
+        font-size: 14px;
+    }
 
-    justify-content: center;
+    .card p,
+    .card-of p {
+        min-height: 35px;
 
-    font-size: 14px;
-}
+        display: flex;
 
-.card p,
-.card-of p{
-    min-height: 35px;
+        align-items: center;
 
-    display: flex;
+        justify-content: center;
 
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-}
+        text-align: center;
+    }
 
 
-.novedades{
+    .novedades {
         padding: 1rem;
     }
 
-    .slider img{
+    .slider img {
         height: 200px;
     }
 
-    .slider-nav a{
+    .slider-nav a {
         width: 8px;
         height: 8px;
     }
