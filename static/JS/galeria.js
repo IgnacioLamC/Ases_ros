@@ -131,10 +131,7 @@ if (btnBuscar) {
 }
 
 if (inputBusqueda) {
-    inputBusqueda.addEventListener('keyup', (e) => {
-        if (e.key === 'Enter') filtrar();
-        else if (inputBusqueda.value === "") filtrar();
-    });
+    inputBusqueda.addEventListener('input', filtrar);
 }
 
 botonesTalle.forEach(btn => {
